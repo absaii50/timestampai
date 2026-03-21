@@ -1,0 +1,306 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: AI Timestamp API specification
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: jobs
+    description: Timestamp job operations
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      description: Returns server health status
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /jobs:
+    get:
+      operationId: listJobs
+      tags: [jobs]
+      summary: List all jobs
+      description: Returns all submitted timestamp jobs from history
+      responses:
+        "200":
+          description: List of jobs
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Job"
+
+  /jobs/submit-youtube:
+    post:
+      operationId: submitYoutube
+      tags: [jobs]
+      summary: Submit a YouTube video for timestamp generation
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/SubmitYoutubeBody"
+      responses:
+        "201":
+          description: Job submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+        "402":
+          description: Insufficient credits
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /jobs/upload-init:
+    post:
+      operationId: uploadInit
+      tags: [jobs]
+      summary: Initialize a video file upload
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UploadInitBody"
+      responses:
+        "200":
+          description: Presigned upload URL
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UploadInitResponse"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /jobs/upload-complete:
+    post:
+      operationId: uploadComplete
+      tags: [jobs]
+      summary: Complete upload and submit for processing
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UploadCompleteBody"
+      responses:
+        "201":
+          description: Job submitted
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "400":
+          description: Bad request
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /jobs/{id}:
+    get:
+      operationId: getJob
+      tags: [jobs]
+      summary: Get job status
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Job status
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Job"
+        "404":
+          description: Job not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+  /jobs/{id}/timestamps:
+    get:
+      operationId: getJobTimestamps
+      tags: [jobs]
+      summary: Get timestamps for a finished job
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Timestamps result
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TimestampsResult"
+        "404":
+          description: Job not found or not finished
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    Job:
+      type: object
+      properties:
+        id:
+          type: integer
+        externalJobId:
+          type: string
+        title:
+          type: ["string", "null"]
+        sourceType:
+          type: string
+          enum: [youtube, upload]
+        sourceUrl:
+          type: ["string", "null"]
+        status:
+          type: string
+          enum: [pending, processing, finished, failed]
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - externalJobId
+        - title
+        - sourceType
+        - sourceUrl
+        - status
+        - createdAt
+        - updatedAt
+
+    SubmitYoutubeBody:
+      type: object
+      properties:
+        youtubeUrl:
+          type: string
+      required:
+        - youtubeUrl
+
+    UploadInitBody:
+      type: object
+      properties:
+        filename:
+          type: string
+        contentType:
+          type: string
+        contentMd5:
+          type: string
+        fileSizeBytes:
+          type: integer
+      required:
+        - filename
+        - contentType
+        - contentMd5
+        - fileSizeBytes
+
+    UploadInitResponse:
+      type: object
+      properties:
+        videoId:
+          type: string
+        presignedUrl:
+          type: string
+        requiredHeaders:
+          type: object
+          additionalProperties:
+            type: string
+      required:
+        - videoId
+        - presignedUrl
+        - requiredHeaders
+
+    UploadCompleteBody:
+      type: object
+      properties:
+        videoId:
+          type: string
+        title:
+          type: ["string", "null"]
+      required:
+        - videoId
+
+    Timestamp:
+      type: object
+      properties:
+        time:
+          type: string
+        label:
+          type: string
+      required:
+        - time
+        - label
+
+    TimestampsResult:
+      type: object
+      properties:
+        jobId:
+          type: integer
+        externalJobId:
+          type: string
+        title:
+          type: ["string", "null"]
+        timestamps:
+          type: array
+          items:
+            $ref: "#/components/schemas/Timestamp"
+      required:
+        - jobId
+        - externalJobId
+        - title
+        - timestamps

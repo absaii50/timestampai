@@ -1,0 +1,18 @@
+packages:
+  "framer-motion": "For smooth tab and modal animations, and layout transitions"
+  "spark-md5": "For calculating file MD5 hash efficiently for S3 uploads"
+  "date-fns": "For elegant date and time formatting"
+  "lucide-react": "For beautiful, consistent iconography"
+  "sonner": "For premium toast notifications"
+  "clsx": "For conditional class name merging"
+  "tailwind-merge": "For intelligent Tailwind class merging"
+
+images:
+  - path: "artifacts/ai-timestamp/public/images/hero-abstract.png"
+    description: "Deep dark minimal abstract background with subtle glowing electric blue and purple gradient meshes, very dark, professional, sleek"
+    aspect_ratio: "16:9"
+
+notes:
+  - "Using @workspace/api-client-react for all API interactions."
+  - "The API requires base64 encoded MD5 for the S3 upload initiation."
+  - "Using spark-md5 to calculate the MD5 hash of video files in chunks to prevent memory issues with large files."

@@ -1,0 +1,15 @@
+{
+  "name": "@workspace/ai-timestamp",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node server.js",
+    "build": "node build.js",
+    "typecheck": "echo 'Vanilla JS - no typecheck needed'"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "esbuild": "catalog:"
+  }
+}
