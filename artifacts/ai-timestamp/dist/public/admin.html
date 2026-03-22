@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Panel — TimestampAI</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="./src/style.css">
+  <noscript></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body data-page="admin">
+
+<div class="adm-shell">
+
+  <!-- ── Sidebar ── -->
+  <aside class="adm-sidebar">
+    <div class="adm-sidebar-top">
+      <div class="adm-brand">
+        <div class="logo-icon sm admin-logo">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        </div>
+        <div>
+          <div class="adm-brand-name">TimestampAI</div>
+          <div class="adm-brand-role">Admin Console</div>
+        </div>
+      </div>
+
+      <nav class="adm-nav">
+        <button class="adm-nav-item active" data-section="overview" onclick="switchAdminSection('overview')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="1"/><rect x="14" y="3" width="7" height="7" rx="1"/><rect x="3" y="14" width="7" height="7" rx="1"/><rect x="14" y="14" width="7" height="7" rx="1"/></svg>
+          Overview
+        </button>
+        <button class="adm-nav-item" data-section="jobs" onclick="switchAdminSection('jobs')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          All Jobs
+          <span class="adm-nav-count" id="adm-jobs-count"></span>
+        </button>
+        <button class="adm-nav-item" data-section="users" onclick="switchAdminSection('users')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          Users
+          <span class="adm-nav-count" id="adm-users-count"></span>
+        </button>
+        <button class="adm-nav-item" data-section="payments" onclick="switchAdminSection('payments')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Payments
+        </button>
+        <button class="adm-nav-item" data-section="credits" onclick="switchAdminSection('credits')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Credits
+        </button>
+        <button class="adm-nav-item" data-section="activity" onclick="switchAdminSection('activity')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          Activity Log
+        </button>
+        <button class="adm-nav-item" data-section="payment-setup" onclick="switchAdminSection('payment-setup')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+          Payment Setup
+        </button>
+        <button class="adm-nav-item" data-section="api-settings" onclick="switchAdminSection('api-settings')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/><path d="M15.54 8.46a5 5 0 0 1 0 7.07M8.46 8.46a5 5 0 0 0 0 7.07"/></svg>
+          API Settings
+        </button>
+        <button class="adm-nav-item" data-section="email-settings" onclick="switchAdminSection('email-settings')">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          Email Setup
+        </button>
+      </nav>
+    </div>
+
+    <div class="adm-sidebar-bottom">
+      <div class="adm-autorefresh-wrap">
+        <div class="adm-autorefresh-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+          Auto-refresh
+        </div>
+        <button id="adm-autorefresh-toggle" class="adm-toggle">
+          <span class="adm-toggle-knob"></span>
+        </button>
+      </div>
+      <div class="adm-last-updated" id="adm-last-updated">Never refreshed</div>
+      <button id="admin-logout-btn" class="adm-logout-btn">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Sign Out
+      </button>
+    </div>
+  </aside>
+
+  <!-- ── Main ── -->
+  <main class="adm-main">
+
+    <!-- ─────────── OVERVIEW ─────────── -->
+    <div id="admin-sec-overview" class="adm-section">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">Dashboard Overview</h1>
+          <p class="adm-section-sub">Real-time platform stats</p>
+        </div>
+        <button id="admin-refresh-stats" class="adm-refresh-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+          Refresh
+        </button>
+      </div>
+
+      <div class="adm-kpi-grid">
+        <div class="adm-kpi-card">
+          <div class="adm-kpi-icon" style="--kc:#7c3aed">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          </div>
+          <div class="adm-kpi-body">
+            <div class="adm-kpi-val" id="stat-total">—</div>
+            <div class="adm-kpi-label">Total Jobs</div>
+          </div>
+        </div>
+        <div class="adm-kpi-card">
+          <div class="adm-kpi-icon" style="--kc:#10b981">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div class="adm-kpi-body">
+            <div class="adm-kpi-val" id="stat-finished" style="color:#4ade80">—</div>
+            <div class="adm-kpi-label">Finished</div>
+          </div>
+        </div>
+        <div class="adm-kpi-card">
+          <div class="adm-kpi-icon" style="--kc:#6366f1">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div class="adm-kpi-body">
+            <div class="adm-kpi-val" id="stat-processing" style="color:#818cf8">—</div>
+            <div class="adm-kpi-label">Processing</div>
+          </div>
+        </div>
+        <div class="adm-kpi-card">
+          <div class="adm-kpi-icon" style="--kc:#f59e0b">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          </div>
+          <div class="adm-kpi-body">
+            <div class="adm-kpi-val" id="stat-pending" style="color:#fbbf24">—</div>
+            <div class="adm-kpi-label">Pending</div>
+          </div>
+        </div>
+        <div class="adm-kpi-card">
+          <div class="adm-kpi-icon" style="--kc:#ef4444">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+          </div>
+          <div class="adm-kpi-body">
+            <div class="adm-kpi-val" id="stat-failed" style="color:#f87171">—</div>
+            <div class="adm-kpi-label">Failed</div>
+          </div>
+        </div>
+        <div class="adm-kpi-card">
+          <div class="adm-kpi-icon" style="--kc:#a855f7">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div class="adm-kpi-body">
+            <div class="adm-kpi-val" id="stat-users" style="color:#c084fc">—</div>
+            <div class="adm-kpi-label">Unique Users</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="adm-revenue-grid">
+        <div class="adm-rev-card adm-rev-main">
+          <div class="adm-rev-label">Total Revenue</div>
+          <div class="adm-rev-val" id="stat-revenue">$—</div>
+          <div class="adm-rev-sub">All time</div>
+        </div>
+        <div class="adm-rev-card">
+          <div class="adm-rev-label">Card (Lemon Squeezy)</div>
+          <div class="adm-rev-val sm" id="stat-ls-revenue">$—</div>
+        </div>
+        <div class="adm-rev-card">
+          <div class="adm-rev-label">Crypto (Cryptomus)</div>
+          <div class="adm-rev-val sm" id="stat-crypto-revenue">$—</div>
+        </div>
+        <div class="adm-rev-card">
+          <div class="adm-rev-label">Total Payments</div>
+          <div class="adm-rev-val sm" id="stat-payments-count">—</div>
+        </div>
+        <div class="adm-rev-card">
+          <div class="adm-rev-label">Credits Issued</div>
+          <div class="adm-rev-val sm" id="stat-credits-issued">—</div>
+        </div>
+      </div>
+
+      <!-- Job success rate bar -->
+      <div class="adm-rate-card">
+        <div class="adm-rate-hdr">
+          <span class="adm-rate-title">Job Success Rate</span>
+          <span class="adm-rate-pct" id="adm-success-rate">—</span>
+        </div>
+        <div class="adm-rate-bar-bg">
+          <div class="adm-rate-bar-fill" id="adm-success-bar" style="width:0%"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─────────── ALL JOBS ─────────── -->
+    <div id="admin-sec-jobs" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">All Jobs</h1>
+          <p class="adm-section-sub">Every timestamp generation request</p>
+        </div>
+        <div class="adm-hdr-actions">
+          <button id="adm-export-jobs" class="adm-export-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export CSV
+          </button>
+          <button id="admin-refresh-jobs" class="adm-refresh-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+            Refresh
+          </button>
+        </div>
+      </div>
+      <div class="adm-filters">
+        <div class="adm-search-wrap">
+          <svg class="adm-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="admin-jobs-filter" class="adm-search" placeholder="Search user, title, URL…" />
+        </div>
+        <select id="admin-jobs-status-filter" class="adm-select">
+          <option value="">All Status</option>
+          <option value="pending">Pending</option>
+          <option value="processing">Processing</option>
+          <option value="finished">Finished</option>
+          <option value="failed">Failed</option>
+        </select>
+        <select id="admin-jobs-type-filter" class="adm-select">
+          <option value="">All Types</option>
+          <option value="youtube">YouTube</option>
+          <option value="upload">Upload</option>
+        </select>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th class="sortable" data-col="id">ID <span class="sort-icon">↕</span></th>
+              <th>User</th>
+              <th>Type</th>
+              <th>Title / URL</th>
+              <th class="sortable" data-col="status">Status <span class="sort-icon">↕</span></th>
+              <th class="sortable" data-col="date">Date <span class="sort-icon">↕</span></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="admin-jobs-body"><tr><td colspan="7" class="adm-table-empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+      <div class="adm-pagination" id="adm-jobs-pagination"></div>
+    </div>
+
+    <!-- ─────────── USERS ─────────── -->
+    <div id="admin-sec-users" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">Registered Users</h1>
+          <p class="adm-section-sub">Everyone who has used the platform</p>
+        </div>
+        <div class="adm-hdr-actions">
+          <button id="adm-export-users" class="adm-export-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export CSV
+          </button>
+          <button id="admin-refresh-users" class="adm-refresh-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+            Refresh
+          </button>
+        </div>
+      </div>
+      <div class="adm-filters">
+        <div class="adm-search-wrap">
+          <svg class="adm-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="admin-users-filter" class="adm-search" placeholder="Search by name or email…" />
+        </div>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead><tr><th>User</th><th>Email</th><th>Total Jobs</th><th>Joined</th></tr></thead>
+          <tbody id="admin-users-body"><tr><td colspan="4" class="adm-table-empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ─────────── PAYMENTS ─────────── -->
+    <div id="admin-sec-payments" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">All Payments</h1>
+          <p class="adm-section-sub">Transaction history across all providers</p>
+        </div>
+        <div class="adm-hdr-actions">
+          <button id="adm-export-payments" class="adm-export-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Export CSV
+          </button>
+          <button id="admin-refresh-payments" class="adm-refresh-btn">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+            Refresh
+          </button>
+        </div>
+      </div>
+      <div class="adm-filters">
+        <div class="adm-search-wrap">
+          <svg class="adm-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="admin-payments-filter" class="adm-search" placeholder="Search user, plan, provider…" />
+        </div>
+        <select id="admin-payments-status-filter" class="adm-select">
+          <option value="">All Status</option>
+          <option value="paid">Paid</option>
+          <option value="pending">Pending</option>
+          <option value="failed">Failed</option>
+        </select>
+        <select id="admin-payments-provider-filter" class="adm-select">
+          <option value="">All Providers</option>
+          <option value="lemonsqueezy">Card</option>
+          <option value="cryptomus">Crypto</option>
+        </select>
+      </div>
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>User</th>
+              <th>Provider</th>
+              <th>Plan</th>
+              <th class="sortable" data-col="amount">Amount <span class="sort-icon">↕</span></th>
+              <th>Credits</th>
+              <th>Status</th>
+              <th class="sortable" data-col="date">Date <span class="sort-icon">↕</span></th>
+              <th></th>
+            </tr>
+          </thead>
+          <tbody id="admin-payments-body"><tr><td colspan="9" class="adm-table-empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ─────────── CREDITS ─────────── -->
+    <div id="admin-sec-credits" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">User Credits</h1>
+          <p class="adm-section-sub">View and adjust credit balances</p>
+        </div>
+        <button id="admin-refresh-credits" class="adm-refresh-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+          Refresh
+        </button>
+      </div>
+
+      <div class="adm-grant-card">
+        <div class="adm-grant-title">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Manually Adjust Credits
+        </div>
+        <div class="adm-grant-form">
+          <input type="email" id="grant-email" class="adm-input" placeholder="user@example.com" />
+          <input type="number" id="grant-amount" class="adm-input" placeholder="Amount" min="0" style="width:110px;flex:none" />
+          <select id="grant-action" class="adm-select" style="width:120px;flex:none">
+            <option value="add">Add</option>
+            <option value="subtract">Subtract</option>
+            <option value="set">Set to</option>
+          </select>
+          <button id="grant-btn" class="btn btn-primary btn-sm">Apply</button>
+        </div>
+        <div id="grant-result" class="adm-grant-result hidden"></div>
+      </div>
+
+      <div class="adm-filters">
+        <div class="adm-search-wrap">
+          <svg class="adm-search-icon" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input type="text" id="admin-credits-filter" class="adm-search" placeholder="Search user…" />
+        </div>
+      </div>
+
+      <div class="adm-table-wrap">
+        <table class="adm-table">
+          <thead>
+            <tr>
+              <th>User</th>
+              <th>Email</th>
+              <th class="sortable" data-col="credits">Credits <span class="sort-icon">↕</span></th>
+              <th>Quick Actions</th>
+            </tr>
+          </thead>
+          <tbody id="admin-credits-body"><tr><td colspan="4" class="adm-table-empty">Loading…</td></tr></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- ─────────── ACTIVITY LOG ─────────── -->
+    <div id="admin-sec-activity" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">Activity Log</h1>
+          <p class="adm-section-sub">Recent platform events</p>
+        </div>
+        <button id="adm-refresh-activity" class="adm-refresh-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+          Refresh
+        </button>
+      </div>
+      <div class="adm-activity-list" id="adm-activity-list">
+        <div class="adm-table-empty">Loading activity…</div>
+      </div>
+    </div>
+
+    <!-- ─────────── PAYMENT SETUP ─────────── -->
+    <div id="admin-sec-payment-setup" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">Payment Gateway Setup</h1>
+          <p class="adm-section-sub">Configure LemonSqueezy (card) and Cryptomus (crypto) integrations</p>
+        </div>
+        <button id="adm-save-payment-settings" class="adm-export-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save All Settings
+        </button>
+      </div>
+
+      <div id="adm-pay-save-result" class="adm-grant-result hidden" style="margin-bottom:16px"></div>
+
+      <!-- Webhook URLs info -->
+      <div class="adm-pay-info-card" style="margin-bottom:20px">
+        <div class="adm-pay-info-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          Webhook URLs — Copy these into your provider dashboards
+        </div>
+        <div class="adm-pay-webhook-row">
+          <span class="adm-pay-webhook-label">LemonSqueezy Webhook:</span>
+          <code class="adm-pay-webhook-url" id="adm-ls-webhook-url"></code>
+          <button class="adm-copy-btn" data-copy="adm-ls-webhook-url" title="Copy">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+        <div class="adm-pay-webhook-row">
+          <span class="adm-pay-webhook-label">Cryptomus Webhook:</span>
+          <code class="adm-pay-webhook-url" id="adm-crypto-webhook-url"></code>
+          <button class="adm-copy-btn" data-copy="adm-crypto-webhook-url" title="Copy">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div class="adm-pay-grid">
+
+        <!-- ── LemonSqueezy Card ── -->
+        <div class="adm-pay-card">
+          <div class="adm-pay-card-hdr">
+            <div class="adm-pay-card-brand ls">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a10 10 0 1 0 0 20 10 10 0 0 0 0-20z"/><path d="M8 14s1.5 2 4 2 4-2 4-2"/><line x1="9" y1="9" x2="9.01" y2="9"/><line x1="15" y1="9" x2="15.01" y2="9"/></svg>
+            </div>
+            <div>
+              <div class="adm-pay-card-name">Lemon Squeezy</div>
+              <div class="adm-pay-card-sub">Card payments via Lemon Squeezy</div>
+            </div>
+            <div class="adm-pay-status-dot" id="adm-ls-status-dot"></div>
+          </div>
+
+          <div class="adm-pay-fields">
+            <div class="adm-pay-field">
+              <label>API Key <span class="adm-src-tag" id="adm-src-LS_API_KEY"></span></label>
+              <div class="adm-pay-input-wrap">
+                <input type="password" id="adm-ls-api-key" name="LS_API_KEY" class="adm-pay-input" placeholder="eyJh…" autocomplete="off" />
+                <button type="button" class="adm-toggle-pw-btn adm-reveal-btn" data-target="adm-ls-api-key">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="adm-pay-field">
+              <label>Store ID <span class="adm-src-tag" id="adm-src-LS_STORE_ID"></span></label>
+              <input type="text" id="adm-ls-store-id" name="LS_STORE_ID" class="adm-pay-input" placeholder="12345" />
+            </div>
+            <div class="adm-pay-field">
+              <label>Webhook Secret <span class="adm-src-tag" id="adm-src-LS_WEBHOOK_SECRET"></span></label>
+              <div class="adm-pay-input-wrap">
+                <input type="password" id="adm-ls-webhook-secret" name="LS_WEBHOOK_SECRET" class="adm-pay-input" placeholder="wh_secret…" autocomplete="off" />
+                <button type="button" class="adm-toggle-pw-btn adm-reveal-btn" data-target="adm-ls-webhook-secret">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <div class="adm-pay-divider">Variant IDs (from Lemon Squeezy product variants)</div>
+
+            <div class="adm-pay-field">
+              <label>Variant — Starter (10 credits) <span class="adm-src-tag" id="adm-src-LS_VARIANT_10"></span></label>
+              <input type="text" id="adm-ls-variant-10" name="LS_VARIANT_10" class="adm-pay-input" placeholder="123456" />
+            </div>
+            <div class="adm-pay-field">
+              <label>Variant — Pro (50 credits) <span class="adm-src-tag" id="adm-src-LS_VARIANT_50"></span></label>
+              <input type="text" id="adm-ls-variant-50" name="LS_VARIANT_50" class="adm-pay-input" placeholder="234567" />
+            </div>
+            <div class="adm-pay-field">
+              <label>Variant — Business (200 credits) <span class="adm-src-tag" id="adm-src-LS_VARIANT_200"></span></label>
+              <input type="text" id="adm-ls-variant-200" name="LS_VARIANT_200" class="adm-pay-input" placeholder="345678" />
+            </div>
+          </div>
+
+          <div class="adm-pay-card-footer">
+            <button class="adm-test-btn" id="adm-test-lemon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Test Connection
+            </button>
+            <span class="adm-test-result" id="adm-test-lemon-result"></span>
+          </div>
+        </div>
+
+        <!-- ── Cryptomus Card ── -->
+        <div class="adm-pay-card">
+          <div class="adm-pay-card-hdr">
+            <div class="adm-pay-card-brand crypto">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+            </div>
+            <div>
+              <div class="adm-pay-card-name">Cryptomus</div>
+              <div class="adm-pay-card-sub">Crypto payments via Cryptomus</div>
+            </div>
+            <div class="adm-pay-status-dot" id="adm-crypto-status-dot"></div>
+          </div>
+
+          <div class="adm-pay-fields">
+            <div class="adm-pay-field">
+              <label>Payment Key <span class="adm-src-tag" id="adm-src-CRYPTO_PAYMENT_KEY"></span></label>
+              <div class="adm-pay-input-wrap">
+                <input type="password" id="adm-crypto-payment-key" name="CRYPTO_PAYMENT_KEY" class="adm-pay-input" placeholder="Payment API key…" autocomplete="off" />
+                <button type="button" class="adm-toggle-pw-btn adm-reveal-btn" data-target="adm-crypto-payment-key">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+                </button>
+              </div>
+            </div>
+            <div class="adm-pay-field">
+              <label>Merchant ID <span class="adm-src-tag" id="adm-src-CRYPTO_MERCHANT_ID"></span></label>
+              <input type="text" id="adm-crypto-merchant-id" name="CRYPTO_MERCHANT_ID" class="adm-pay-input" placeholder="xxxxxxxx-xxxx-…" />
+            </div>
+
+            <div class="adm-pay-divider">App URL (required for webhooks)</div>
+
+            <div class="adm-pay-field">
+              <label>App URL <span class="adm-src-tag" id="adm-src-APP_URL"></span></label>
+              <input type="text" id="adm-app-url" name="APP_URL" class="adm-pay-input" placeholder="https://yourapp.replit.app" />
+              <span class="adm-pay-hint">Used as the base for Cryptomus webhook callback URL</span>
+            </div>
+          </div>
+
+          <div class="adm-pay-card-footer">
+            <button class="adm-test-btn" id="adm-test-crypto">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Test Connection
+            </button>
+            <span class="adm-test-result" id="adm-test-crypto-result"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Setup guide -->
+      <div class="adm-pay-guide">
+        <div class="adm-pay-guide-title">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+          Setup Instructions
+        </div>
+        <div class="adm-pay-guide-cols">
+          <div class="adm-pay-guide-col">
+            <div class="adm-pay-guide-col-title ls-text">🍋 LemonSqueezy</div>
+            <ol class="adm-pay-guide-list">
+              <li>Go to <strong>app.lemonsqueezy.com</strong> → Settings → API</li>
+              <li>Create an API key and paste it above</li>
+              <li>Copy your <strong>Store ID</strong> from the store page URL</li>
+              <li>Create 3 products (Starter $4.99, Pro $19.99, Business $59.99)</li>
+              <li>Copy each product's <strong>Variant ID</strong> from the variant URL</li>
+              <li>Go to <strong>Webhooks</strong> → Add webhook → paste the URL above</li>
+              <li>Check <code>order_created</code> event, generate a secret, paste it above</li>
+            </ol>
+          </div>
+          <div class="adm-pay-guide-col">
+            <div class="adm-pay-guide-col-title crypto-text">₿ Cryptomus</div>
+            <ol class="adm-pay-guide-list">
+              <li>Go to <strong>cryptomus.com</strong> → Dashboard → Merchant</li>
+              <li>Create a merchant and copy the <strong>Merchant UUID</strong></li>
+              <li>Go to <strong>Settings → Payment API</strong></li>
+              <li>Generate a <strong>Payment API Key</strong> and paste above</li>
+              <li>Set your <strong>App URL</strong> (e.g. your Replit .app domain)</li>
+              <li>Cryptomus webhook is auto-configured via the callback URL</li>
+            </ol>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         API SETTINGS SECTION
+    ══════════════════════════════════════════════════════════ -->
+    <div id="admin-sec-api-settings" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">API Settings</h1>
+          <p class="adm-section-sub">Configure the Timestamps.video API key used for generating chapter timestamps</p>
+        </div>
+      </div>
+
+      <!-- Status info card -->
+      <div class="adm-pay-info-card" style="margin-bottom:20px">
+        <div class="adm-pay-info-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Current API Status
+        </div>
+        <div style="display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+          <div>
+            <div class="adm-pay-webhook-label" style="margin-bottom:4px">API Key Source</div>
+            <span id="api-key-source-tag" class="adm-src-tag src-unset">checking…</span>
+          </div>
+          <div>
+            <div class="adm-pay-webhook-label" style="margin-bottom:4px">Base URL Source</div>
+            <span id="api-url-source-tag" class="adm-src-tag src-unset">checking…</span>
+          </div>
+          <div style="margin-left:auto">
+            <button class="adm-test-btn" id="api-test-btn" onclick="testTimestampsApi()">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              Test Connection
+            </button>
+            <span id="api-test-result" class="adm-test-result" style="margin-left:10px"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Config card -->
+      <div class="adm-pay-card" style="max-width:680px;margin-bottom:24px">
+        <div class="adm-pay-card-hdr">
+          <div class="adm-pay-card-brand ls" style="background:rgba(99,102,241,0.15);color:#818cf8">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+          </div>
+          <div>
+            <div class="adm-pay-card-name">Timestamps.video API</div>
+            <div class="adm-pay-card-sub">api.timestamps.video — AI chapter generation</div>
+          </div>
+          <div id="api-status-dot" class="adm-pay-status-dot" style="margin-left:auto"></div>
+        </div>
+
+        <div class="adm-pay-fields">
+          <div class="adm-pay-field">
+            <label>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+              API Key
+            </label>
+            <div class="adm-pay-input-wrap">
+              <input type="password" id="api-key-input" class="adm-pay-input" placeholder="ts_xxxxxxxxxxxxxxxxxxxxxxxx" autocomplete="off" />
+              <button class="adm-copy-btn" style="position:absolute;right:5px;top:50%;transform:translateY(-50%)" onclick="toggleApiKeyVisibility(this)" title="Show/hide">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+            <div class="adm-pay-hint">Get your key at <a href="https://timestamps.video" target="_blank" style="color:#818cf8">timestamps.video</a> → Dashboard → API Keys</div>
+          </div>
+
+          <div class="adm-pay-field">
+            <label>
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+              API Base URL
+            </label>
+            <input type="text" id="api-url-input" class="adm-pay-input" placeholder="https://api.timestamps.video" />
+            <div class="adm-pay-hint">Default: <code style="font-family:monospace;color:#c4b5fd;background:rgba(124,58,237,0.1);padding:1px 5px;border-radius:3px">https://api.timestamps.video</code> — only change if using a custom deployment</div>
+          </div>
+        </div>
+
+        <div class="adm-pay-card-footer">
+          <button class="adm-btn adm-btn-primary" onclick="saveApiSettings()" id="api-save-btn" style="padding:8px 18px;font-size:13px">
+            Save API Settings
+          </button>
+          <button class="adm-btn" onclick="resetApiDefaults()" style="padding:8px 14px;font-size:12px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);color:rgba(255,255,255,0.45);cursor:pointer;border-radius:8px;font-family:inherit">
+            Reset to Default
+          </button>
+          <span id="api-save-msg" style="font-size:12px;margin-left:6px"></span>
+        </div>
+      </div>
+
+      <!-- Setup guide -->
+      <div class="adm-pay-guide" style="max-width:680px">
+        <div class="adm-pay-guide-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+          How to get your Timestamps.video API Key
+        </div>
+        <ol class="adm-pay-guide-list">
+          <li>Go to <strong>timestamps.video</strong> and sign in or create an account</li>
+          <li>Navigate to the <strong>Dashboard → API Keys</strong> section</li>
+          <li>Click <strong>"Create new key"</strong> and give it a name (e.g. <code>TimestampAI App</code>)</li>
+          <li>Copy the generated key (it starts with <code>ts_</code>) and paste it above</li>
+          <li>Click <strong>"Save API Settings"</strong>, then <strong>"Test Connection"</strong> to verify</li>
+          <li>Once connected, your users can generate AI timestamps using your account credits</li>
+        </ol>
+      </div>
+    </div>
+
+    <!-- ══════════════════════════════════════════════════════════
+         EMAIL SETTINGS SECTION
+    ══════════════════════════════════════════════════════════ -->
+    <div id="admin-sec-email-settings" class="adm-section hidden">
+      <div class="adm-section-hdr">
+        <div>
+          <h1 class="adm-section-title">Email Setup</h1>
+          <p class="adm-section-sub">Configure SMTP to send welcome emails, payment receipts, and credit notifications</p>
+        </div>
+      </div>
+
+      <!-- Status banner -->
+      <div class="adm-pay-info-card" style="margin-bottom:20px">
+        <div class="adm-pay-info-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+          Automated Emails — What Gets Sent
+        </div>
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <div style="width:32px;height:32px;background:rgba(124,58,237,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">👋</div>
+            <div><div style="font-size:13px;font-weight:600;color:#e2e0f0">Welcome Email</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">On first timestamp generation</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <div style="width:32px;height:32px;background:rgba(74,222,128,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">✅</div>
+            <div><div style="font-size:13px;font-weight:600;color:#e2e0f0">Payment Receipt</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">After successful purchase</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <div style="width:32px;height:32px;background:rgba(251,191,36,0.12);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">⚡</div>
+            <div><div style="font-size:13px;font-weight:600;color:#e2e0f0">Credit Update</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">When admin adjusts credits</div></div>
+          </div>
+          <div style="display:flex;align-items:flex-start;gap:10px">
+            <div style="width:32px;height:32px;background:rgba(99,102,241,0.15);border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:16px">📬</div>
+            <div><div style="font-size:13px;font-weight:600;color:#e2e0f0">Contact Form</div><div style="font-size:12px;color:rgba(255,255,255,0.4)">Forwarded to admin email</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMTP config card -->
+      <div class="adm-pay-card" style="max-width:700px;margin-bottom:24px">
+        <div class="adm-pay-card-hdr">
+          <div class="adm-pay-card-brand ls" style="background:rgba(99,102,241,0.15);color:#818cf8">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          </div>
+          <div>
+            <div class="adm-pay-card-name">SMTP Configuration</div>
+            <div class="adm-pay-card-sub">Works with Hostinger, Gmail, any SMTP provider</div>
+          </div>
+          <div id="smtp-status-dot" class="adm-pay-status-dot" style="margin-left:auto"></div>
+        </div>
+
+        <div class="adm-pay-fields">
+          <div class="adm-pay-grid">
+            <div class="adm-pay-field">
+              <label>SMTP Host</label>
+              <input type="text" id="smtp-host" class="adm-pay-input" placeholder="smtp.hostinger.com" />
+              <div class="adm-pay-hint">Hostinger: <code style="color:#c4b5fd;background:rgba(124,58,237,0.1);padding:1px 5px;border-radius:3px;font-family:monospace">smtp.hostinger.com</code></div>
+            </div>
+            <div class="adm-pay-field">
+              <label>SMTP Port</label>
+              <input type="text" id="smtp-port" class="adm-pay-input" placeholder="465" />
+              <div class="adm-pay-hint">Hostinger: <code style="color:#c4b5fd;background:rgba(124,58,237,0.1);padding:1px 5px;border-radius:3px;font-family:monospace">465</code> (SSL) or <code style="color:#c4b5fd;background:rgba(124,58,237,0.1);padding:1px 5px;border-radius:3px;font-family:monospace">587</code> (TLS)</div>
+            </div>
+          </div>
+
+          <div class="adm-pay-field">
+            <label>Email Address (Username)</label>
+            <input type="email" id="smtp-user" class="adm-pay-input" placeholder="noreply@timestampai.app" />
+            <div class="adm-pay-hint">The email address you created in Hostinger (e.g. noreply@timestampai.app)</div>
+          </div>
+
+          <div class="adm-pay-field">
+            <label>Email Password</label>
+            <div class="adm-pay-input-wrap">
+              <input type="password" id="smtp-pass" class="adm-pay-input" placeholder="Your email account password" autocomplete="off" />
+              <button class="adm-copy-btn" style="position:absolute;right:5px;top:50%;transform:translateY(-50%)" onclick="document.getElementById('smtp-pass').type=document.getElementById('smtp-pass').type==='password'?'text':'password'" title="Show/hide">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+              </button>
+            </div>
+          </div>
+
+          <div class="adm-pay-divider">Sender Info</div>
+
+          <div class="adm-pay-grid">
+            <div class="adm-pay-field">
+              <label>From Name</label>
+              <input type="text" id="smtp-from-name" class="adm-pay-input" placeholder="TimestampAI" />
+            </div>
+            <div class="adm-pay-field">
+              <label>From Email</label>
+              <input type="email" id="smtp-from-email" class="adm-pay-input" placeholder="noreply@timestampai.app" />
+              <div class="adm-pay-hint">Leave blank to use the Username above</div>
+            </div>
+          </div>
+
+          <div class="adm-pay-field">
+            <label>Admin Email <span style="font-size:10px;color:rgba(255,255,255,0.3);text-transform:none;letter-spacing:0;font-weight:400">(receives contact form messages)</span></label>
+            <input type="email" id="smtp-admin-email" class="adm-pay-input" placeholder="you@timestampai.app" />
+          </div>
+
+          <div class="adm-pay-field">
+            <label>SSL/TLS</label>
+            <div style="display:flex;gap:16px;margin-top:4px">
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);cursor:pointer;font-weight:400;text-transform:none;letter-spacing:0">
+                <input type="radio" name="smtp-secure" id="smtp-secure-true" value="true" style="accent-color:#7c3aed"> SSL (port 465) — recommended
+              </label>
+              <label style="display:flex;align-items:center;gap:6px;font-size:13px;color:rgba(255,255,255,0.6);cursor:pointer;font-weight:400;text-transform:none;letter-spacing:0">
+                <input type="radio" name="smtp-secure" id="smtp-secure-false" value="false" style="accent-color:#7c3aed"> STARTTLS (port 587)
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <div class="adm-pay-card-footer" style="flex-wrap:wrap;gap:10px">
+          <button class="adm-btn adm-btn-primary" onclick="saveEmailSettings()" id="smtp-save-btn" style="padding:8px 18px;font-size:13px">
+            Save Settings
+          </button>
+          <button class="adm-test-btn" onclick="testSmtpConn()">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+            Test Connection
+          </button>
+          <span id="smtp-test-result" class="adm-test-result"></span>
+          <span id="smtp-save-msg" style="font-size:12px;margin-left:4px"></span>
+        </div>
+      </div>
+
+      <!-- Send test email -->
+      <div class="adm-pay-card" style="max-width:700px;margin-bottom:24px">
+        <div class="adm-pay-card-hdr">
+          <div class="adm-pay-card-brand" style="background:rgba(74,222,128,0.12);color:#4ade80">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+          </div>
+          <div>
+            <div class="adm-pay-card-name">Send Test Email</div>
+            <div class="adm-pay-card-sub">Verify everything is working by sending yourself a test</div>
+          </div>
+        </div>
+        <div class="adm-pay-fields">
+          <div class="adm-pay-field">
+            <label>Send test to</label>
+            <div style="display:flex;gap:10px">
+              <input type="email" id="smtp-test-to" class="adm-pay-input" placeholder="your@email.com" style="flex:1" />
+              <button onclick="sendTestEmailNow()" id="smtp-send-test-btn" style="padding:0 18px;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.2);border-radius:8px;color:#4ade80;cursor:pointer;font-size:13px;font-weight:600;font-family:inherit;white-space:nowrap">Send Test</button>
+            </div>
+            <span id="smtp-send-result" class="adm-test-result" style="margin-top:6px;display:block"></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hostinger setup guide -->
+      <div class="adm-pay-guide" style="max-width:700px">
+        <div class="adm-pay-guide-title">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 8 12 12 14 14"/></svg>
+          Hostinger Email Setup Guide
+        </div>
+        <ol class="adm-pay-guide-list">
+          <li>Log in to <strong>Hostinger hPanel</strong> → go to <strong>Emails → Email Accounts</strong></li>
+          <li>Click <strong>"Create Email Account"</strong> — e.g. <code>noreply@timestampai.app</code></li>
+          <li>Set a strong password and note it down — you'll paste it above</li>
+          <li>SMTP Host: <code>smtp.hostinger.com</code> · Port: <code>465</code> · SSL: <strong>On</strong></li>
+          <li>Enter the email and password in the fields above, then click <strong>"Save Settings"</strong></li>
+          <li>Click <strong>"Test Connection"</strong> to verify, then <strong>"Send Test"</strong> to check delivery</li>
+        </ol>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="./src/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login — TimestampAI</title>
+  <meta name="robots" content="noindex, nofollow" />
+  <link rel="stylesheet" href="./src/style.css">
+  <noscript></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body data-page="admin-login">
+
+<div class="adm-login-bg">
+  <div class="adm-login-card">
+    <div class="adm-login-brand">
+      <div class="adm-login-shield">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <div class="adm-login-brand-name">TimestampAI</div>
+        <div class="adm-login-brand-role">Admin Console</div>
+      </div>
+    </div>
+
+    <h1 class="adm-login-title">Secure Admin Access</h1>
+    <p class="adm-login-sub">Enter your admin password to continue</p>
+
+    <form id="admin-login-form" class="adm-login-form" novalidate>
+      <div class="adm-login-field">
+        <label for="admin-key-input">Admin Password</label>
+        <div class="adm-login-input-wrap">
+          <svg class="adm-login-input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <input type="password" id="admin-key-input" placeholder="Enter password" required autocomplete="current-password" />
+          <button type="button" id="adm-toggle-pw" class="adm-toggle-pw-btn" tabindex="-1">
+            <svg id="adm-eye-open" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+            <svg id="adm-eye-closed" class="hidden" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94"/><path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+          </button>
+        </div>
+      </div>
+
+      <div id="admin-login-error" class="adm-login-error hidden">
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg>
+        Incorrect password. Please try again.
+      </div>
+
+      <button type="submit" class="adm-login-btn" id="adm-login-submit-btn">
+        <span id="adm-login-btn-text">Enter Admin Panel</span>
+        <span id="adm-login-btn-spinner" class="spinner hidden"></span>
+        <svg id="adm-login-btn-arrow" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+      </button>
+    </form>
+
+    <div class="adm-login-divider"><span>or</span></div>
+    <button id="go-user-login" class="adm-login-alt-btn">Go to User Sign In</button>
+    <button id="admin-back-home" class="adm-login-back">← Back to Home</button>
+  </div>
+</div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="./src/main.js" defer></script>
+</body>
+</html>

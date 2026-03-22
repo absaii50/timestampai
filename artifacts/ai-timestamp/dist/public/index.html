@@ -1,0 +1,1695 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<script>(function(){var m={'/login':'/login.html','/admin-login':'/admin-login.html','/dashboard':'/dashboard.html','/admin':'/admin.html','/pricing':'/pricing.html','/privacy':'/privacy.html','/terms':'/terms.html','/contact':'/contact.html'};var p=window.location.pathname.replace(/\/+$/,'');for(var k in m){if(p===k||p.startsWith(k+'/')){var x=new XMLHttpRequest();x.open('GET',m[k],false);x.send();if(x.status===200){document.open('text/html');document.write(x.responseText);document.close();}return;}}})();</script>
+  <base href="/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TimestampAI — Free AI YouTube Timestamp & Chapter Generator</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="description" content="Generate AI-powered chapter timestamps for any YouTube video or uploaded file in under 30 seconds. The fastest free AI timestamp generator — paste a link, get instant chapters." />
+  <meta name="keywords" content="AI timestamp generator, YouTube chapter timestamps, video chapters generator, automatic timestamp maker, YouTube chapters AI, video timestamp tool, add chapters to YouTube, free timestamp generator" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="TimestampAI" />
+  <link rel="canonical" href="https://timestampai.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TimestampAI — Free AI YouTube Timestamp &amp; Chapter Generator" />
+  <meta property="og:description" content="Turn any YouTube video or uploaded file into perfectly timed AI chapter timestamps in seconds. Free to try. No account required." />
+  <meta property="og:url" content="https://timestampai.app/" />
+  <meta property="og:site_name" content="TimestampAI" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TimestampAI — Free AI YouTube Timestamp Generator" />
+  <meta name="twitter:description" content="Generate chapter timestamps for any YouTube video in seconds using AI. Free, instant, no signup needed." />
+
+  <!-- Structured Data — Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TimestampAI",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered automatic YouTube timestamp and video chapter generator. Paste a YouTube URL or upload a video file to instantly get AI-generated chapter timestamps.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free trial credits included"
+    },
+    "featureList": [
+      "Automatic YouTube chapter timestamp generation",
+      "Video file upload support",
+      "AI-powered content analysis",
+      "Instant results in under 30 seconds",
+      "One-click copy and .txt download",
+      "Job history and usage dashboard"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data — FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI timestamp generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An AI timestamp generator automatically analyzes a video's audio and content to identify distinct topics or chapters, then outputs timestamps you can paste directly into YouTube's description to create clickable chapter markers." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I add chapters to a YouTube video?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Paste your YouTube video URL into TimestampAI, wait a few seconds, then copy the generated timestamps and paste them into your YouTube video description. YouTube will automatically convert them into clickable chapter markers." }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the AI-generated timestamps?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TimestampAI uses advanced AI to analyze speech, topics, and content transitions. Results are highly accurate for most videos, especially those with clear speech. Accuracy may vary for music-heavy or low-speech content." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is TimestampAI free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, TimestampAI includes free credits for new users with no account required. Additional credits can be purchased starting at $4.99 for 10 generations." }
+      },
+      {
+        "@type": "Question",
+        "name": "What video formats does TimestampAI support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TimestampAI supports YouTube URLs and direct video file uploads in MP4, MOV, AVI, and other common formats." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="./src/style.css">
+
+  <noscript></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body data-page="home">
+
+<!-- Background layers -->
+  <div class="hp-bg">
+    <div class="hp-glow hp-glow-1"></div>
+    <div class="hp-glow hp-glow-2"></div>
+    <div class="hp-glow hp-glow-3"></div>
+    <div class="hp-grid"></div>
+  </div>
+
+  <header class="home-header">
+    <div class="header-inner">
+      <div class="header-brand">
+        <div class="logo-icon sm">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        </div>
+        <span class="logo-text">TimestampAI</span>
+      </div>
+      <nav class="home-nav">
+        <a class="nav-link" href="#features">Features</a>
+        <a class="nav-link" href="#how">How it works</a>
+        <a class="nav-link nav-link-page" data-page="page-pricing">Pricing</a>
+      </nav>
+      <div class="home-header-right">
+        <button id="home-signin-btn" class="btn btn-ghost btn-sm">Sign In</button>
+        <button id="home-start-btn" class="btn btn-primary btn-sm">Get Started →</button>
+      </div>
+    </div>
+  </header>
+
+  <section class="home-hero">
+    <div class="home-hero-inner">
+
+      <div class="home-pill">
+        <span class="pill-dot"></span>
+        AI-Powered · Free · Instant
+      </div>
+
+      <h1 class="home-title">Turn any video into<br><span class="hero-accent">instant chapters.</span></h1>
+
+      <p class="home-sub">Paste a YouTube link or upload a video file. Our AI reads the content and generates perfectly timed chapter timestamps — in seconds.</p>
+
+      <!-- Input tabs: URL / Upload -->
+      <div class="hero-tabs">
+        <button class="hero-tab active" id="htab-url" onclick="heroTab('url')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+          YouTube URL
+        </button>
+        <button class="hero-tab" id="htab-file" onclick="heroTab('file')">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          Upload File
+        </button>
+      </div>
+
+      <!-- URL panel -->
+      <div id="hero-url-panel">
+        <div class="hero-input-row">
+          <div class="hero-url-wrap">
+            <svg class="hero-url-icon" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            <input id="hero-url-input" class="hero-url-input" type="url" placeholder="https://youtube.com/watch?v=…" />
+          </div>
+          <button id="home-cta-btn" class="btn btn-primary hero-go-btn">
+            Generate Free
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </button>
+        </div>
+        <p class="hero-trust">No account required · Works with any YouTube video</p>
+      </div>
+
+      <!-- Upload panel -->
+      <div id="hero-file-panel" class="hidden">
+        <div class="hero-upload-zone" id="hero-upload-zone">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" style="color:var(--accent2)"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+          <div class="hero-upload-text">
+            <span class="hero-upload-main">Drop your video here</span>
+            <span class="hero-upload-sub">MP4, MOV, AVI, MKV, WebM · up to 2 GB</span>
+          </div>
+          <button class="btn btn-primary hero-go-btn" id="home-upload-cta-btn">
+            Choose File
+          </button>
+        </div>
+        <p class="hero-trust">Processed securely · File deleted after analysis</p>
+      </div>
+
+      <!-- Stats row -->
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="hero-stat-num">10K+</span>
+          <span class="hero-stat-label">Videos processed</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">&lt;30s</span>
+          <span class="hero-stat-label">Average time</span>
+        </div>
+        <div class="hero-stat-divider"></div>
+        <div class="hero-stat">
+          <span class="hero-stat-num">100%</span>
+          <span class="hero-stat-label">AI-generated</span>
+        </div>
+      </div>
+
+      <button id="home-admin-btn" class="admin-link-btn">Admin Panel →</button>
+    </div><!-- /.home-hero-inner -->
+
+    <!-- Browser mockup frame -->
+    <div class="hero-browser">
+      <div class="hero-browser-chrome">
+        <div class="hbc-dots">
+          <span class="hbc-dot" style="background:#f87171"></span>
+          <span class="hbc-dot" style="background:#fbbf24"></span>
+          <span class="hbc-dot" style="background:#4ade80"></span>
+        </div>
+        <div class="hbc-bar">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--muted)"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          <span>timestampai.app · AI Chapter Timestamps</span>
+        </div>
+        <div class="hbc-actions">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color:var(--muted)"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </div>
+      </div>
+      <div class="hero-browser-body">
+        <div class="ts-panel">
+
+        <!-- Panel header -->
+        <div class="ts-panel-hdr">
+          <div class="preview-dots">
+            <div class="preview-dot red"></div>
+            <div class="preview-dot yellow"></div>
+            <div class="preview-dot green"></div>
+          </div>
+          <span class="ts-panel-title">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+            AI Chapter Timestamps
+          </span>
+          <span class="preview-count">9 chapters</span>
+        </div>
+
+        <!-- Chapter timeline bar -->
+        <div class="chapter-timeline">
+          <div class="ctl-track">
+            <div class="ctl-fill" id="hero-progress"></div>
+            <div class="ctl-playhead" id="hero-playhead"></div>
+            <!-- Chapter markers -->
+            <div class="ctl-marker" style="left:0%"    title="0:00"></div>
+            <div class="ctl-marker" style="left:13.8%" title="1:23"></div>
+            <div class="ctl-marker" style="left:27.8%" title="2:47"></div>
+            <div class="ctl-marker" style="left:41.7%" title="4:10"></div>
+            <div class="ctl-marker" style="left:55%"   title="5:30"></div>
+            <div class="ctl-marker" style="left:68.3%" title="6:50"></div>
+            <div class="ctl-marker" style="left:80.8%" title="8:05"></div>
+            <div class="ctl-marker" style="left:90%"   title="9:00"></div>
+            <div class="ctl-marker" style="left:100%"  title="10:00"></div>
+          </div>
+          <div class="ctl-labels">
+            <span>0:00</span>
+            <span>5:00</span>
+            <span>10:00</span>
+          </div>
+        </div>
+
+        <!-- Timestamp rows — YouTube style with thumbnails -->
+        <div class="ts-list" id="hero-ts-list">
+
+          <div class="ts-row active-ts" data-pct="0">
+            <div class="ts-thumb" style="--g1:#6366f1;--g2:#8b5cf6">
+              <div class="ts-thumb-lines"></div>
+              <div class="ts-thumb-play">
+                <svg width="10" height="10" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              </div>
+              <span class="ts-thumb-time">0:00</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Introduction &amp; Overview</div>
+              <div class="ts-chapter-sub">Chapter 1 · 1:23</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="13.8">
+            <div class="ts-thumb" style="--g1:#0ea5e9;--g2:#6366f1">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">1:23</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Setting Up the Environment</div>
+              <div class="ts-chapter-sub">Chapter 2 · 1:24</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="27.8">
+            <div class="ts-thumb" style="--g1:#ec4899;--g2:#f43f5e">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">2:47</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Core Concepts Explained</div>
+              <div class="ts-chapter-sub">Chapter 3 · 1:23</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="41.7">
+            <div class="ts-thumb" style="--g1:#10b981;--g2:#0ea5e9">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">4:10</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">First Example Walkthrough</div>
+              <div class="ts-chapter-sub">Chapter 4 · 1:20</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="55">
+            <div class="ts-thumb" style="--g1:#f59e0b;--g2:#ef4444">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">5:30</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Advanced Techniques</div>
+              <div class="ts-chapter-sub">Chapter 5 · 1:20</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="68.3">
+            <div class="ts-thumb" style="--g1:#8b5cf6;--g2:#06b6d4">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">6:50</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Real-World Application</div>
+              <div class="ts-chapter-sub">Chapter 6 · 1:15</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="80.8">
+            <div class="ts-thumb" style="--g1:#f43f5e;--g2:#f59e0b">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">8:05</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Common Pitfalls &amp; Fixes</div>
+              <div class="ts-chapter-sub">Chapter 7 · 0:55</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="90">
+            <div class="ts-thumb" style="--g1:#14b8a6;--g2:#6366f1">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">9:00</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Performance Optimization</div>
+              <div class="ts-chapter-sub">Chapter 8 · 1:00</div>
+            </div>
+          </div>
+
+          <div class="ts-row" data-pct="100">
+            <div class="ts-thumb" style="--g1:#a3e635;--g2:#10b981">
+              <div class="ts-thumb-lines"></div>
+              <span class="ts-thumb-time">10:00</span>
+            </div>
+            <div class="ts-meta">
+              <div class="ts-chapter-title">Summary &amp; Next Steps</div>
+              <div class="ts-chapter-sub">Chapter 9 · End</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Panel footer -->
+        <div class="ts-panel-ftr">
+          <span class="ts-copy-hint">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy all timestamps
+          </span>
+          <span class="preview-badge">✓ Ready to use</span>
+        </div>
+
+      </div><!-- /.ts-panel -->
+      </div><!-- /.hero-browser-body -->
+    </div><!-- /.hero-browser -->
+  </section>
+
+  <!-- ── How It Works ── -->
+  <section class="home-how" id="how">
+    <div class="section-inner">
+      <div class="section-pill">How it works</div>
+      <h2 class="section-title">From video to chapters<br>in three steps</h2>
+      <p class="how-subtitle">No editing software. No manual rewatching. Paste a link and AI does the rest.</p>
+
+      <!-- Step connector track -->
+      <div class="how-track">
+        <div class="how-track-line"></div>
+        <div class="how-track-nodes">
+          <div class="how-track-node how-track-node--1">
+            <div class="how-track-circle">1</div>
+          </div>
+          <div class="how-track-node how-track-node--2">
+            <div class="how-track-circle">2</div>
+          </div>
+          <div class="how-track-node how-track-node--3">
+            <div class="how-track-circle">3</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Three cards -->
+      <div class="how-cards">
+
+        <!-- Card 1 -->
+        <div class="how-card">
+          <div class="how-card-visual how-card-visual--1">
+            <!-- URL input mockup -->
+            <div class="how-mock-input">
+              <div class="how-mock-input-icon">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+              </div>
+              <span class="how-mock-input-text">youtube.com/watch?v=dQw4w9…</span>
+              <span class="how-mock-input-btn">Go →</span>
+            </div>
+            <div class="how-mock-divider">or</div>
+            <div class="how-mock-upload">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Drop video file here
+            </div>
+          </div>
+          <div class="how-card-body">
+            <h3 class="how-card-title">Paste or Upload</h3>
+            <p class="how-card-desc">Drop a YouTube URL or upload your video file — any length, any language.</p>
+            <div class="how-card-chips">
+              <span class="how-chip">YouTube URLs</span>
+              <span class="how-chip">MP4 / MOV</span>
+              <span class="how-chip">MKV / WebM</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="how-card">
+          <div class="how-card-visual how-card-visual--2">
+            <!-- AI waveform processing mockup -->
+            <div class="how-mock-ai">
+              <div class="how-ai-label">Detecting chapter boundaries…</div>
+              <div class="how-ai-wave">
+                <div class="how-ai-bar" style="--h:35%"></div>
+                <div class="how-ai-bar" style="--h:65%"></div>
+                <div class="how-ai-bar" style="--h:50%"></div>
+                <div class="how-ai-bar" style="--h:85%"></div>
+                <div class="how-ai-bar" style="--h:40%"></div>
+                <div class="how-ai-bar" style="--h:72%"></div>
+                <div class="how-ai-bar" style="--h:58%"></div>
+                <div class="how-ai-bar" style="--h:90%"></div>
+                <div class="how-ai-bar" style="--h:45%"></div>
+                <div class="how-ai-bar" style="--h:68%"></div>
+                <div class="how-ai-bar" style="--h:30%"></div>
+                <div class="how-ai-bar" style="--h:76%"></div>
+              </div>
+              <div class="how-ai-progress">
+                <div class="how-ai-progress-fill"></div>
+              </div>
+            </div>
+          </div>
+          <div class="how-card-body">
+            <h3 class="how-card-title">AI Detects Chapters</h3>
+            <p class="how-card-desc">AI reads speech, tracks topic changes, and pinpoints every chapter boundary — automatically.</p>
+            <div class="how-card-chips">
+              <span class="how-chip how-chip--purple">&lt; 30 seconds</span>
+              <span class="how-chip">100% AI-generated</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="how-card">
+          <div class="how-card-visual how-card-visual--3">
+            <!-- Timestamp output mockup -->
+            <div class="how-mock-output">
+              <div class="how-mock-ts"><span class="how-ts-t">0:00</span> Introduction &amp; Overview</div>
+              <div class="how-mock-ts"><span class="how-ts-t">1:23</span> Getting Started</div>
+              <div class="how-mock-ts"><span class="how-ts-t">3:45</span> Core Concepts</div>
+              <div class="how-mock-ts"><span class="how-ts-t">7:10</span> Advanced Tips</div>
+              <div class="how-mock-ts how-mock-ts--fade"><span class="how-ts-t">12:30</span> Summary</div>
+            </div>
+            <button class="how-mock-copy-btn">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+              Copy all timestamps
+            </button>
+          </div>
+          <div class="how-card-body">
+            <h3 class="how-card-title">Copy &amp; Paste</h3>
+            <p class="how-card-desc">One click copies every timestamp in perfect YouTube format. Paste straight into your description.</p>
+            <div class="how-card-chips">
+              <span class="how-chip how-chip--green">Ready to paste</span>
+              <span class="how-chip">YouTube format</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Features ── -->
+  <section class="home-features" id="features">
+    <div class="section-inner">
+      <div class="section-pill">Features</div>
+      <h2 class="section-title">Everything you need</h2>
+
+      <div class="feat-showcase">
+
+        <!-- ── Left: Tab List ── -->
+        <div class="feat-tabs" role="tablist">
+
+          <button class="feat-tab active" data-feat="youtube" role="tab" aria-selected="true">
+            <div class="feat-tab-icon" style="--fc:#6366f1">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </div>
+            <div class="feat-tab-text">
+              <strong>YouTube URLs</strong>
+              <span>Paste any link, get chapters instantly</span>
+            </div>
+            <div class="feat-tab-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </button>
+
+          <button class="feat-tab" data-feat="upload" role="tab" aria-selected="false">
+            <div class="feat-tab-icon" style="--fc:#8b5cf6">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+            </div>
+            <div class="feat-tab-text">
+              <strong>File Upload</strong>
+              <span>MP4, MOV, AVI, MKV up to 2 GB</span>
+            </div>
+            <div class="feat-tab-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </button>
+
+          <button class="feat-tab" data-feat="fast" role="tab" aria-selected="false">
+            <div class="feat-tab-icon" style="--fc:#f59e0b">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+            </div>
+            <div class="feat-tab-text">
+              <strong>Lightning Fast</strong>
+              <span>Results in under 30 seconds</span>
+            </div>
+            <div class="feat-tab-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </button>
+
+          <button class="feat-tab" data-feat="copy" role="tab" aria-selected="false">
+            <div class="feat-tab-icon" style="--fc:#10b981">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            </div>
+            <div class="feat-tab-text">
+              <strong>One-Click Copy</strong>
+              <span>Ready-to-paste for YouTube descriptions</span>
+            </div>
+            <div class="feat-tab-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </button>
+
+          <button class="feat-tab" data-feat="history" role="tab" aria-selected="false">
+            <div class="feat-tab-icon" style="--fc:#0ea5e9">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="feat-tab-text">
+              <strong>Job History</strong>
+              <span>All past timestamps saved &amp; searchable</span>
+            </div>
+            <div class="feat-tab-arrow">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </div>
+          </button>
+
+        </div><!-- /.feat-tabs -->
+
+        <!-- ── Right: Demo Panels ── -->
+        <div class="feat-demo">
+
+          <!-- Panel: YouTube URLs -->
+          <div class="feat-panel active" data-feat="youtube">
+            <div class="fdemo-label">Live demo</div>
+            <div class="fdemo-browser">
+              <div class="fdemo-bar">
+                <div class="fdemo-dots"><span></span><span></span><span></span></div>
+                <div class="fdemo-url">timestampai.app</div>
+              </div>
+              <div class="fdemo-body">
+                <div class="fdemo-input-row">
+                  <div class="fdemo-yt-icon">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="#ff0000"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46A2.78 2.78 0 0 0 1.46 6.42 29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon fill="white" points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+                  </div>
+                  <div class="fdemo-typewriter" id="fdemo-yt-url">https://youtu.be/dQw4w9WgXcQ</div>
+                  <div class="fdemo-gen-btn">Generate →</div>
+                </div>
+                <div class="fdemo-divider"></div>
+                <div class="fdemo-ts-list" id="fdemo-yt-rows">
+                  <div class="fdemo-ts-row fdemo-r1"><span class="fdemo-ts-time">0:00</span><span class="fdemo-ts-title">Introduction &amp; Overview</span></div>
+                  <div class="fdemo-ts-row fdemo-r2"><span class="fdemo-ts-time">1:23</span><span class="fdemo-ts-title">Setting Up the Project</span></div>
+                  <div class="fdemo-ts-row fdemo-r3"><span class="fdemo-ts-time">3:47</span><span class="fdemo-ts-title">Core Concepts Explained</span></div>
+                  <div class="fdemo-ts-row fdemo-r4"><span class="fdemo-ts-time">6:12</span><span class="fdemo-ts-title">Live Coding Walkthrough</span></div>
+                  <div class="fdemo-ts-row fdemo-r5"><span class="fdemo-ts-time">9:55</span><span class="fdemo-ts-title">Wrap-up &amp; Next Steps</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel: File Upload -->
+          <div class="feat-panel" data-feat="upload">
+            <div class="fdemo-label">Live demo</div>
+            <div class="fdemo-browser">
+              <div class="fdemo-bar">
+                <div class="fdemo-dots"><span></span><span></span><span></span></div>
+                <div class="fdemo-url">timestampai.app</div>
+              </div>
+              <div class="fdemo-body">
+                <div class="fdemo-dropzone" id="fdemo-dropzone">
+                  <div class="fdemo-drop-icon">
+                    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                  </div>
+                  <div class="fdemo-drop-title">Drop your video here</div>
+                  <div class="fdemo-drop-sub">MP4, MOV, AVI, MKV · up to 2 GB</div>
+                </div>
+                <div class="fdemo-upload-progress" id="fdemo-upload-progress">
+                  <div class="fdemo-file-info">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#8b5cf6" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                    <span>tutorial_video.mp4</span>
+                    <span class="fdemo-file-size">847 MB</span>
+                  </div>
+                  <div class="fdemo-prog-bar"><div class="fdemo-prog-fill" id="fdemo-prog-fill"></div></div>
+                  <div class="fdemo-prog-label"><span id="fdemo-prog-pct">0%</span><span class="fdemo-prog-status">Uploading...</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel: Lightning Fast -->
+          <div class="feat-panel" data-feat="fast">
+            <div class="fdemo-label">Live demo</div>
+            <div class="fdemo-browser">
+              <div class="fdemo-bar">
+                <div class="fdemo-dots"><span></span><span></span><span></span></div>
+                <div class="fdemo-url">timestampai.app</div>
+              </div>
+              <div class="fdemo-body fdemo-body-fast">
+                <div class="fdemo-fast-timer">
+                  <div class="fdemo-fast-icon">⚡</div>
+                  <div class="fdemo-fast-label">Processing video</div>
+                  <div class="fdemo-fast-secs"><span id="fdemo-secs">0</span>s</div>
+                </div>
+                <div class="fdemo-fast-prog"><div class="fdemo-fast-fill" id="fdemo-fast-fill"></div></div>
+                <div class="fdemo-fast-steps">
+                  <div class="fdemo-fast-step" id="fstep-1">✓ Audio extracted</div>
+                  <div class="fdemo-fast-step" id="fstep-2">✓ Speech transcribed</div>
+                  <div class="fdemo-fast-step" id="fstep-3">✓ Chapters detected</div>
+                  <div class="fdemo-fast-step fdemo-fast-done" id="fstep-4">🎉 Done in <strong id="fdemo-done-time">18s</strong></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel: One-Click Copy -->
+          <div class="feat-panel" data-feat="copy">
+            <div class="fdemo-label">Live demo</div>
+            <div class="fdemo-browser">
+              <div class="fdemo-bar">
+                <div class="fdemo-dots"><span></span><span></span><span></span></div>
+                <div class="fdemo-url">timestampai.app</div>
+              </div>
+              <div class="fdemo-body">
+                <div class="fdemo-copy-list">
+                  <div class="fdemo-copy-row"><span class="fdemo-ts-time">0:00</span><span>Introduction &amp; Overview</span></div>
+                  <div class="fdemo-copy-row"><span class="fdemo-ts-time">1:23</span><span>Setting Up the Project</span></div>
+                  <div class="fdemo-copy-row"><span class="fdemo-ts-time">3:47</span><span>Core Concepts Explained</span></div>
+                  <div class="fdemo-copy-row"><span class="fdemo-ts-time">6:12</span><span>Live Coding Walkthrough</span></div>
+                </div>
+                <button class="fdemo-copy-btn" id="fdemo-copy-btn">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                  <span id="fdemo-copy-label">Copy All Timestamps</span>
+                </button>
+                <div class="fdemo-copied-toast" id="fdemo-copied-toast">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+                  Copied to clipboard!
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel: Job History -->
+          <div class="feat-panel" data-feat="history">
+            <div class="fdemo-label">Live demo</div>
+            <div class="fdemo-browser">
+              <div class="fdemo-bar">
+                <div class="fdemo-dots"><span></span><span></span><span></span></div>
+                <div class="fdemo-url">timestampai.app · History</div>
+              </div>
+              <div class="fdemo-body">
+                <div class="fdemo-history-list">
+                  <div class="fdemo-hist-row fdemo-h1">
+                    <div class="fdemo-hist-thumb" style="background:linear-gradient(135deg,#6366f1,#8b5cf6)">▶</div>
+                    <div class="fdemo-hist-info">
+                      <div class="fdemo-hist-title">How to Learn React in 2025</div>
+                      <div class="fdemo-hist-meta"><span class="fdemo-hist-badge">9 chapters</span><span>2 minutes ago</span></div>
+                    </div>
+                    <div class="fdemo-hist-action">View</div>
+                  </div>
+                  <div class="fdemo-hist-row fdemo-h2">
+                    <div class="fdemo-hist-thumb" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">▶</div>
+                    <div class="fdemo-hist-info">
+                      <div class="fdemo-hist-title">Advanced TypeScript Patterns</div>
+                      <div class="fdemo-hist-meta"><span class="fdemo-hist-badge">12 chapters</span><span>1 hour ago</span></div>
+                    </div>
+                    <div class="fdemo-hist-action">View</div>
+                  </div>
+                  <div class="fdemo-hist-row fdemo-h3">
+                    <div class="fdemo-hist-thumb" style="background:linear-gradient(135deg,#10b981,#0ea5e9)">▶</div>
+                    <div class="fdemo-hist-info">
+                      <div class="fdemo-hist-title">Building a SaaS from Scratch</div>
+                      <div class="fdemo-hist-meta"><span class="fdemo-hist-badge">7 chapters</span><span>Yesterday</span></div>
+                    </div>
+                    <div class="fdemo-hist-action">View</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.feat-demo -->
+      </div><!-- /.feat-showcase -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SOCIAL PROOF — Testimonials
+  ══════════════════════════════════════════════ -->
+  <section class="home-testimonials" id="testimonials" aria-label="Customer testimonials">
+    <div class="section-inner">
+      <div class="section-pill">Loved by creators</div>
+      <h2 class="section-title">What content creators are saying</h2>
+      <p class="section-sub">Thousands of YouTubers, educators, and podcasters use TimestampAI to save hours every week.</p>
+
+      <div class="testimonials-grid">
+
+        <article class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testi-quote">"I used to spend 20–30 minutes manually writing timestamps for every video. TimestampAI does it in under 30 seconds. It's genuinely changed my workflow."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#6366f1,#a855f7)">JR</div>
+            <div>
+              <div class="testi-name">James R.</div>
+              <div class="testi-role">YouTube Creator · 85K subscribers</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testi-quote">"The AI is surprisingly accurate. It correctly identified every major topic shift in my 45-minute lecture video. My students love the chapters."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#0ea5e9,#6366f1)">SK</div>
+            <div>
+              <div class="testi-name">Sarah K.</div>
+              <div class="testi-role">Online Educator · Udemy Instructor</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testi-quote">"We repurpose our weekly podcast episodes to YouTube. TimestampAI adds chapters automatically — no extra effort from our team."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#10b981,#0ea5e9)">MP</div>
+            <div>
+              <div class="testi-name">Marcus P.</div>
+              <div class="testi-role">Podcast Producer · The Growth Lab</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testi-quote">"Our marketing team uploads product demos and tutorials weekly. TimestampAI saves us hours of manual work every single month."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#f59e0b,#ef4444)">AL</div>
+            <div>
+              <div class="testi-name">Anika L.</div>
+              <div class="testi-role">Content Marketing Manager</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testi-quote">"I tried several tools before this one. TimestampAI is the most accurate and the fastest. The file upload feature is a game-changer for my unedited recordings."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#ec4899,#f43f5e)">DW</div>
+            <div>
+              <div class="testi-name">David W.</div>
+              <div class="testi-role">Tech YouTuber · 200K subscribers</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="testi-card">
+          <div class="testi-stars" aria-label="5 out of 5 stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+          </div>
+          <blockquote class="testi-quote">"Adding chapters boosted my average view duration by 18%. TimestampAI made it effortless to do this for all my existing videos too."</blockquote>
+          <div class="testi-author">
+            <div class="testi-avatar" style="background:linear-gradient(135deg,#8b5cf6,#06b6d4)">NT</div>
+            <div>
+              <div class="testi-name">Nina T.</div>
+              <div class="testi-role">Finance YouTuber · 50K subscribers</div>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       USE CASES — Who is it for?
+  ══════════════════════════════════════════════ -->
+  <section class="home-usecases" id="use-cases" aria-label="Who uses TimestampAI">
+    <div class="section-inner">
+      <div class="section-pill">Use cases</div>
+      <h2 class="section-title">Built for every type of video creator</h2>
+      <p class="section-sub">Whether you upload weekly vlogs, full-length courses, or corporate training videos — TimestampAI works for you.</p>
+
+      <div class="uc-layout">
+
+        <!-- Left: tab list -->
+        <div class="uc-tabs" role="tablist" aria-label="Creator types">
+
+          <button class="uc-tab uc-tab--active" data-uc="0" role="tab" aria-selected="true" style="--uc-color:#818cf8;--uc-bg:rgba(99,102,241,0.1)">
+            <div class="uc-tab-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+            </div>
+            <div class="uc-tab-text">
+              <div class="uc-tab-title">YouTubers &amp; Creators</div>
+              <div class="uc-tab-sub">Weekly &amp; tutorial channels</div>
+            </div>
+            <svg class="uc-tab-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <button class="uc-tab" data-uc="1" role="tab" aria-selected="false" style="--uc-color:#34d399;--uc-bg:rgba(16,185,129,0.1)">
+            <div class="uc-tab-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div class="uc-tab-text">
+              <div class="uc-tab-title">Online Educators</div>
+              <div class="uc-tab-sub">Courses &amp; lecture recordings</div>
+            </div>
+            <svg class="uc-tab-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <button class="uc-tab" data-uc="2" role="tab" aria-selected="false" style="--uc-color:#fbbf24;--uc-bg:rgba(245,158,11,0.1)">
+            <div class="uc-tab-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+            </div>
+            <div class="uc-tab-text">
+              <div class="uc-tab-title">Podcast Creators</div>
+              <div class="uc-tab-sub">Long-form interview episodes</div>
+            </div>
+            <svg class="uc-tab-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <button class="uc-tab" data-uc="3" role="tab" aria-selected="false" style="--uc-color:#f87171;--uc-bg:rgba(239,68,68,0.1)">
+            <div class="uc-tab-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+            </div>
+            <div class="uc-tab-text">
+              <div class="uc-tab-title">Marketing &amp; Business</div>
+              <div class="uc-tab-sub">Demos, webinars &amp; events</div>
+            </div>
+            <svg class="uc-tab-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <button class="uc-tab" data-uc="4" role="tab" aria-selected="false" style="--uc-color:#c084fc;--uc-bg:rgba(168,85,247,0.1)">
+            <div class="uc-tab-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+            </div>
+            <div class="uc-tab-text">
+              <div class="uc-tab-title">Corporate &amp; HR Teams</div>
+              <div class="uc-tab-sub">Training &amp; onboarding videos</div>
+            </div>
+            <svg class="uc-tab-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+          <button class="uc-tab" data-uc="5" role="tab" aria-selected="false" style="--uc-color:#38bdf8;--uc-bg:rgba(14,165,233,0.1)">
+            <div class="uc-tab-icon">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+            </div>
+            <div class="uc-tab-text">
+              <div class="uc-tab-title">News &amp; Media</div>
+              <div class="uc-tab-sub">Documentaries &amp; interviews</div>
+            </div>
+            <svg class="uc-tab-arrow" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+
+        </div>
+
+        <!-- Right: detail panels -->
+        <div class="uc-panels">
+
+          <!-- Panel 0 — YouTubers -->
+          <div class="uc-panel uc-panel--active" data-uc="0" role="tabpanel">
+            <div class="uc-panel-header" style="background:linear-gradient(135deg,rgba(99,102,241,0.15),rgba(168,85,247,0.08))">
+              <div class="uc-panel-header-icon" style="background:rgba(99,102,241,0.15);color:#818cf8">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02"/></svg>
+              </div>
+              <div>
+                <div class="uc-panel-label" style="color:#818cf8">Content Creators</div>
+                <h3 class="uc-panel-title">YouTubers &amp; Video Creators</h3>
+              </div>
+            </div>
+            <div class="uc-panel-body">
+              <p class="uc-panel-desc">Add clickable chapter timestamps to every video automatically. Chapters show on the progress bar, in search results, and as a list below your video — boosting watch time and return visitors.</p>
+              <ul class="uc-panel-list" style="--uc-check:#818cf8">
+                <li>Paste any YouTube URL — chapters generated in &lt;30 sec</li>
+                <li>Improve average view duration with navigation chapters</li>
+                <li>Process your entire back-catalogue in bulk</li>
+                <li>YouTube algorithm rewards better engagement signals</li>
+              </ul>
+              <div class="uc-panel-stats">
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#818cf8">↑ 18%</div>
+                  <div class="uc-stat-lbl">Avg. view duration</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#818cf8">↑ 23%</div>
+                  <div class="uc-stat-lbl">Return viewers</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#818cf8">&lt;30s</div>
+                  <div class="uc-stat-lbl">To generate</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 1 — Educators -->
+          <div class="uc-panel" data-uc="1" role="tabpanel">
+            <div class="uc-panel-header" style="background:linear-gradient(135deg,rgba(16,185,129,0.12),rgba(5,150,105,0.06))">
+              <div class="uc-panel-header-icon" style="background:rgba(16,185,129,0.15);color:#34d399">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              </div>
+              <div>
+                <div class="uc-panel-label" style="color:#34d399">Education</div>
+                <h3 class="uc-panel-title">Online Educators &amp; Course Creators</h3>
+              </div>
+            </div>
+            <div class="uc-panel-body">
+              <p class="uc-panel-desc">Make long lecture recordings easy to navigate. Students can jump to any topic instantly, rewatch specific sections, and find exactly what they need — improving satisfaction and course completion rates.</p>
+              <ul class="uc-panel-list" style="--uc-check:#34d399">
+                <li>Upload lecture video files directly (MP4, MOV, MKV)</li>
+                <li>AI detects every topic change automatically</li>
+                <li>Compatible with Udemy, Teachable, and YouTube</li>
+                <li>Students spend less time rewinding, more time learning</li>
+              </ul>
+              <div class="uc-panel-stats">
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#34d399">↑ 34%</div>
+                  <div class="uc-stat-lbl">Course completion</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#34d399">↓ 41%</div>
+                  <div class="uc-stat-lbl">Support tickets</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#34d399">Any<br>language</div>
+                  <div class="uc-stat-lbl">Supported</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 2 — Podcasters -->
+          <div class="uc-panel" data-uc="2" role="tabpanel">
+            <div class="uc-panel-header" style="background:linear-gradient(135deg,rgba(245,158,11,0.12),rgba(217,119,6,0.06))">
+              <div class="uc-panel-header-icon" style="background:rgba(245,158,11,0.15);color:#fbbf24">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2a3 3 0 0 1 3 3v7a3 3 0 0 1-6 0V5a3 3 0 0 1 3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="22"/></svg>
+              </div>
+              <div>
+                <div class="uc-panel-label" style="color:#fbbf24">Podcasting</div>
+                <h3 class="uc-panel-title">Podcast Creators</h3>
+              </div>
+            </div>
+            <div class="uc-panel-body">
+              <p class="uc-panel-desc">Repurpose podcast episodes to YouTube with AI-generated chapters for every discussion topic, interview question, and segment break. Turn audio-first content into a navigable video experience.</p>
+              <ul class="uc-panel-list" style="--uc-check:#fbbf24">
+                <li>Perfect for long-form 60–180 minute interview episodes</li>
+                <li>Chapter segments identified by content, not arbitrary time intervals</li>
+                <li>Ready to paste directly into YouTube description</li>
+                <li>Works with video podcast recordings and audio-to-video exports</li>
+              </ul>
+              <div class="uc-panel-stats">
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#fbbf24">3×</div>
+                  <div class="uc-stat-lbl">More episode engagement</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#fbbf24">↑ 27%</div>
+                  <div class="uc-stat-lbl">Shares per episode</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#fbbf24">Any<br>length</div>
+                  <div class="uc-stat-lbl">Video supported</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 3 — Marketing -->
+          <div class="uc-panel" data-uc="3" role="tabpanel">
+            <div class="uc-panel-header" style="background:linear-gradient(135deg,rgba(239,68,68,0.1),rgba(220,38,38,0.05))">
+              <div class="uc-panel-header-icon" style="background:rgba(239,68,68,0.12);color:#f87171">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+              </div>
+              <div>
+                <div class="uc-panel-label" style="color:#f87171">Business</div>
+                <h3 class="uc-panel-title">Marketing &amp; Business Teams</h3>
+              </div>
+            </div>
+            <div class="uc-panel-body">
+              <p class="uc-panel-desc">Add professional structure to product demos, webinar recordings, and customer success stories. Make long-form video content instantly scannable for prospects who want to jump to the section they care about.</p>
+              <ul class="uc-panel-list" style="--uc-check:#f87171">
+                <li>Webinar &amp; virtual event recording chapters</li>
+                <li>Product demo walkthrough navigation</li>
+                <li>Customer story and case study highlights</li>
+                <li>Internal team meeting recordings with agenda chapters</li>
+              </ul>
+              <div class="uc-panel-stats">
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#f87171">↑ 52%</div>
+                  <div class="uc-stat-lbl">Demo watch-through rate</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#f87171">↓ 38%</div>
+                  <div class="uc-stat-lbl">Lead drop-off</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#f87171">Bulk</div>
+                  <div class="uc-stat-lbl">Processing available</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 4 — Corporate HR -->
+          <div class="uc-panel" data-uc="4" role="tabpanel">
+            <div class="uc-panel-header" style="background:linear-gradient(135deg,rgba(168,85,247,0.12),rgba(124,58,237,0.06))">
+              <div class="uc-panel-header-icon" style="background:rgba(168,85,247,0.12);color:#c084fc">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+              </div>
+              <div>
+                <div class="uc-panel-label" style="color:#c084fc">Enterprise</div>
+                <h3 class="uc-panel-title">Corporate Training &amp; HR Teams</h3>
+              </div>
+            </div>
+            <div class="uc-panel-body">
+              <p class="uc-panel-desc">Make compliance training, onboarding videos, and e-learning modules easier to navigate for employees who need to revisit specific sections — without watching entire recordings from scratch.</p>
+              <ul class="uc-panel-list" style="--uc-check:#c084fc">
+                <li>Module-by-module chapter navigation for any LMS</li>
+                <li>Upload internal MP4 files directly (no YouTube needed)</li>
+                <li>Consistent chapter structure across all training content</li>
+                <li>Employees find answers 4× faster with chapter navigation</li>
+              </ul>
+              <div class="uc-panel-stats">
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#c084fc">4×</div>
+                  <div class="uc-stat-lbl">Faster information retrieval</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#c084fc">↓ 60%</div>
+                  <div class="uc-stat-lbl">Re-watch time wasted</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#c084fc">MP4<br>Upload</div>
+                  <div class="uc-stat-lbl">No YouTube required</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Panel 5 — News & Media -->
+          <div class="uc-panel" data-uc="5" role="tabpanel">
+            <div class="uc-panel-header" style="background:linear-gradient(135deg,rgba(14,165,233,0.12),rgba(2,132,199,0.06))">
+              <div class="uc-panel-header-icon" style="background:rgba(14,165,233,0.12);color:#38bdf8">
+                <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+              </div>
+              <div>
+                <div class="uc-panel-label" style="color:#38bdf8">Media</div>
+                <h3 class="uc-panel-title">News &amp; Media Publishers</h3>
+              </div>
+            </div>
+            <div class="uc-panel-body">
+              <p class="uc-panel-desc">Automatically structure long-form documentary content, interview videos, and news analysis pieces with AI-generated chapter timestamps — giving viewers instant access to the topics they care about most.</p>
+              <ul class="uc-panel-list" style="--uc-check:#38bdf8">
+                <li>Long documentary &amp; multi-topic interview chapters</li>
+                <li>Breaking news segment and panel discussion markers</li>
+                <li>Investigative piece and report section navigation</li>
+                <li>Increase video engagement on news YouTube channels</li>
+              </ul>
+              <div class="uc-panel-stats">
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#38bdf8">↑ 44%</div>
+                  <div class="uc-stat-lbl">Segment view rate</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#38bdf8">↑ 31%</div>
+                  <div class="uc-stat-lbl">Video shares</div>
+                </div>
+                <div class="uc-stat">
+                  <div class="uc-stat-val" style="color:#38bdf8">API</div>
+                  <div class="uc-stat-lbl">Integration available</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /.uc-panels -->
+      </div><!-- /.uc-layout -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       BENEFITS — Why TimestampAI?
+  ══════════════════════════════════════════════ -->
+  <section class="home-benefits" id="benefits" aria-label="Benefits of TimestampAI">
+    <div class="section-inner">
+      <div class="benefits-inner">
+        <div class="benefits-left">
+          <div class="section-pill">Why TimestampAI</div>
+          <h2 class="benefits-title">Stop wasting time writing timestamps manually</h2>
+          <p class="benefits-sub">Manual timestamp writing takes 20–40 minutes per video. TimestampAI does the same job in under 30 seconds — with better accuracy than doing it by hand.</p>
+
+          <div class="benefits-compare">
+            <div class="compare-col compare-bad">
+              <div class="compare-col-hdr bad">Without TimestampAI</div>
+              <ul>
+                <li><span class="compare-x">✕</span> 20–40 min per video, manually</li>
+                <li><span class="compare-x">✕</span> Easy to miss topic transitions</li>
+                <li><span class="compare-x">✕</span> Inconsistent quality across videos</li>
+                <li><span class="compare-x">✕</span> No time to do it for older videos</li>
+                <li><span class="compare-x">✕</span> Human error in timecodes</li>
+              </ul>
+            </div>
+            <div class="compare-col compare-good">
+              <div class="compare-col-hdr good">With TimestampAI</div>
+              <ul>
+                <li><span class="compare-check">✓</span> Done in under 30 seconds</li>
+                <li><span class="compare-check">✓</span> AI detects every content shift</li>
+                <li><span class="compare-check">✓</span> Consistent quality every time</li>
+                <li><span class="compare-check">✓</span> Batch your entire back-catalogue</li>
+                <li><span class="compare-check">✓</span> Precise AI timecodes</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="benefits-right">
+          <div class="benefits-stats-grid">
+            <div class="benefit-stat-card">
+              <div class="benefit-stat-num">30s</div>
+              <div class="benefit-stat-label">Average generation time</div>
+              <div class="benefit-stat-sub">vs. 20–40 min manually</div>
+            </div>
+            <div class="benefit-stat-card">
+              <div class="benefit-stat-num">98%</div>
+              <div class="benefit-stat-label">User satisfaction rate</div>
+              <div class="benefit-stat-sub">Based on internal reviews</div>
+            </div>
+            <div class="benefit-stat-card">
+              <div class="benefit-stat-num">18%</div>
+              <div class="benefit-stat-label">Avg. view duration increase</div>
+              <div class="benefit-stat-sub">Reported by users after adding chapters</div>
+            </div>
+            <div class="benefit-stat-card">
+              <div class="benefit-stat-num">10K+</div>
+              <div class="benefit-stat-label">Videos processed</div>
+              <div class="benefit-stat-sub">And growing every day</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       SEO ARTICLE — What are YouTube chapters?
+  ══════════════════════════════════════════════ -->
+  <section class="home-article" id="what-are-youtube-chapters" aria-label="What are YouTube chapters">
+    <div class="section-inner">
+
+      <!-- Full-width hero header -->
+      <div class="learn-hero">
+        <div class="learn-hero-left">
+          <div class="section-pill">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            Learn
+          </div>
+          <h2 class="article-title">What are YouTube timestamps &amp; chapters?</h2>
+          <p class="article-intro">A complete guide to YouTube chapter timestamps — what they are, why they matter, and how AI generates them for you instantly.</p>
+          <div class="learn-tags">
+            <span class="learn-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              4 min read
+            </span>
+            <span class="learn-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22.54 6.42a2.78 2.78 0 0 0-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 0 0-1.95 1.96A29 29 0 0 0 1 12a29 29 0 0 0 .46 5.58A2.78 2.78 0 0 0 3.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.46a2.78 2.78 0 0 0 1.95-1.95A29 29 0 0 0 23 12a29 29 0 0 0-.46-5.58z"/></svg>
+              YouTube Guide
+            </span>
+            <span class="learn-tag">
+              <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+              SEO Tips
+            </span>
+          </div>
+        </div>
+
+        <!-- YouTube chapter visual preview -->
+        <div class="yt-preview">
+          <div class="yt-preview-header">
+            <div class="yt-preview-dots">
+              <span style="background:#ff5f57"></span>
+              <span style="background:#febc2e"></span>
+              <span style="background:#28c840"></span>
+            </div>
+            <span class="yt-preview-url">youtube.com/watch?v=...</span>
+          </div>
+          <div class="yt-preview-body">
+            <!-- Fake video thumbnail -->
+            <div class="yt-fake-video">
+              <div class="yt-fake-thumb">
+                <div class="yt-play-btn">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+                </div>
+                <div class="yt-fake-duration">14:32</div>
+              </div>
+              <!-- Chapter progress bar -->
+              <div class="yt-progress-wrap">
+                <div class="yt-progress-bar">
+                  <div class="yt-progress-fill" style="width:38%"></div>
+                  <div class="yt-chapter-mark" style="left:0%"></div>
+                  <div class="yt-chapter-mark" style="left:18%"></div>
+                  <div class="yt-chapter-mark" style="left:36%"></div>
+                  <div class="yt-chapter-mark" style="left:58%"></div>
+                  <div class="yt-chapter-mark" style="left:80%"></div>
+                  <div class="yt-progress-thumb" style="left:38%"></div>
+                </div>
+                <div class="yt-time-labels">
+                  <span>5:29</span>
+                  <span>14:32</span>
+                </div>
+              </div>
+            </div>
+            <!-- Chapter list -->
+            <div class="yt-chapters-panel">
+              <div class="yt-chapters-title">Chapters</div>
+              <div class="yt-chapter-item yt-chapter-active">
+                <span class="yt-ch-time">0:00</span>
+                <span class="yt-ch-name">Introduction &amp; Overview</span>
+              </div>
+              <div class="yt-chapter-item">
+                <span class="yt-ch-time">1:23</span>
+                <span class="yt-ch-name">Getting Started</span>
+              </div>
+              <div class="yt-chapter-item">
+                <span class="yt-ch-time">3:45</span>
+                <span class="yt-ch-name">Core Concepts</span>
+              </div>
+              <div class="yt-chapter-item">
+                <span class="yt-ch-time">7:10</span>
+                <span class="yt-ch-name">Advanced Tips</span>
+              </div>
+              <div class="yt-chapter-item">
+                <span class="yt-ch-time">12:30</span>
+                <span class="yt-ch-name">Summary &amp; Next Steps</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Two-column content + sidebar -->
+      <div class="article-inner">
+
+        <!-- Main content: vertical timeline -->
+        <div class="article-content">
+          <div class="article-timeline">
+
+            <!-- Step 1 -->
+            <div class="article-step">
+              <div class="step-left">
+                <div class="step-circle">1</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-body">
+                <h3 class="article-h3">What are YouTube timestamps?</h3>
+                <p>YouTube timestamps are time markers added to a video's description that let viewers jump directly to any topic. When formatted correctly, YouTube converts them into interactive <strong>chapter markers</strong> — visible on the scrubber bar and as a clickable chapters list below the video.</p>
+                <div class="article-callout article-callout--info">
+                  <div class="article-callout-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+                  </div>
+                  <p>Chapters appear as a <strong>segmented progress bar</strong> on desktop &amp; mobile, and as a "Chapters" panel — making long content effortless to navigate.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 2 -->
+            <div class="article-step">
+              <div class="step-left">
+                <div class="step-circle">2</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-body">
+                <h3 class="article-h3">Why chapters matter for your channel</h3>
+                <p>Videos with chapters consistently outperform those without across every metric YouTube's algorithm rewards:</p>
+                <div class="article-metrics-row">
+                  <div class="article-metric">
+                    <div class="article-metric-icon" style="background:rgba(52,211,153,0.12);color:#34d399">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+                    </div>
+                    <div class="article-metric-val up">↑ 18%</div>
+                    <div class="article-metric-lbl">View duration</div>
+                  </div>
+                  <div class="article-metric">
+                    <div class="article-metric-icon" style="background:rgba(99,102,241,0.12);color:#818cf8">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                    </div>
+                    <div class="article-metric-val up">↑ 23%</div>
+                    <div class="article-metric-lbl">Return viewers</div>
+                  </div>
+                  <div class="article-metric">
+                    <div class="article-metric-icon" style="background:rgba(56,189,248,0.12);color:#38bdf8">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                    </div>
+                    <div class="article-metric-val down">↓ 31%</div>
+                    <div class="article-metric-lbl">Drop-off rate</div>
+                  </div>
+                </div>
+                <p>Chapters also let viewers share specific moments and revisit exact sections — boosting return-viewer signals that push your videos into broader recommendations.</p>
+              </div>
+            </div>
+
+            <!-- Step 3 -->
+            <div class="article-step">
+              <div class="step-left">
+                <div class="step-circle">3</div>
+                <div class="step-line"></div>
+              </div>
+              <div class="step-body">
+                <h3 class="article-h3">How to add chapters to YouTube</h3>
+                <p>Paste a formatted list of timestamps into your video description. YouTube detects them automatically — no special tools needed in YouTube Studio.</p>
+
+                <div class="article-rules-list">
+                  <div class="article-rule">
+                    <div class="article-rule-badge">1</div>
+                    <div>First timestamp <strong>must be 0:00</strong> — always start at the beginning</div>
+                  </div>
+                  <div class="article-rule">
+                    <div class="article-rule-badge">2</div>
+                    <div>Minimum <strong>3 chapters</strong> required for YouTube to show them</div>
+                  </div>
+                  <div class="article-rule">
+                    <div class="article-rule-badge">3</div>
+                    <div>Each line needs a <strong>descriptive chapter title</strong> after the time</div>
+                  </div>
+                </div>
+
+                <div class="article-terminal">
+                  <div class="article-terminal-bar">
+                    <span class="terminal-dot" style="background:#ff5f57"></span>
+                    <span class="terminal-dot" style="background:#febc2e"></span>
+                    <span class="terminal-dot" style="background:#28c840"></span>
+                    <span class="terminal-label">YouTube Studio · Video Description</span>
+                    <button class="terminal-copy-btn" title="Format used by TimestampAI">
+                      <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+                      TimestampAI format
+                    </button>
+                  </div>
+                  <div class="article-terminal-body">
+                    <div class="terminal-line-num-wrap">
+                      <div class="terminal-line-nums">
+                        <span>1</span><span>2</span><span>3</span><span>4</span><span>5</span>
+                      </div>
+                      <div class="terminal-lines">
+                        <div class="terminal-line"><span class="term-time">0:00</span> <span class="term-chapter">Introduction &amp; Overview</span></div>
+                        <div class="terminal-line"><span class="term-time">1:23</span> <span class="term-chapter">Getting Started</span></div>
+                        <div class="terminal-line"><span class="term-time">3:45</span> <span class="term-chapter">Core Concepts Explained</span></div>
+                        <div class="terminal-line"><span class="term-time">7:10</span> <span class="term-chapter">Advanced Tips &amp; Tricks</span></div>
+                        <div class="terminal-line"><span class="term-time">12:30</span> <span class="term-chapter">Summary &amp; Next Steps</span><span class="terminal-cursor"></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="article-callout article-callout--success">
+                  <div class="article-callout-icon">
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                  </div>
+                  <p>TimestampAI outputs timestamps in <strong>exactly this format</strong> — ready to paste directly into your YouTube description with one click.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Step 4 -->
+            <div class="article-step article-step--last">
+              <div class="step-left">
+                <div class="step-circle step-circle--accent">4</div>
+              </div>
+              <div class="step-body">
+                <h3 class="article-h3">Manual vs. AI — the real time cost</h3>
+                <p>Writing timestamps manually means re-watching your video from start to finish, pausing at each topic shift, and typing accurate timecodes. For a 30-minute video this takes <strong>30–45 minutes</strong> of extra work per upload.</p>
+                <div class="atc-compare-grid">
+                  <div class="atc-compare-card atc-compare-card--bad">
+                    <div class="atc-compare-badge atc-compare-badge--bad">Manual</div>
+                    <div class="atc-big-time">30–45 min</div>
+                    <div class="atc-compare-desc">Re-watch &rarr; Pause &rarr; Type &rarr; Rewind &rarr; Repeat<br>for every video, every upload</div>
+                    <div class="atc-bar-wrap">
+                      <div class="atc-bar-fill atc-bar-fill--bad"></div>
+                    </div>
+                  </div>
+                  <div class="atc-compare-vs">VS</div>
+                  <div class="atc-compare-card atc-compare-card--good">
+                    <div class="atc-compare-badge atc-compare-badge--good">TimestampAI</div>
+                    <div class="atc-big-time atc-big-time--good">&lt; 30 sec</div>
+                    <div class="atc-compare-desc">Paste URL or upload file &rarr; AI reads speech &rarr; Chapters ready<br>in under 30 seconds, every time</div>
+                    <div class="atc-bar-wrap">
+                      <div class="atc-bar-fill atc-bar-fill--good" style="width:3.3%"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div><!-- /.article-timeline -->
+        </div><!-- /.article-content -->
+
+        <!-- Sidebar -->
+        <div class="article-sidebar">
+
+          <!-- Table of contents -->
+          <div class="article-sidebar-card article-sidebar-toc">
+            <div class="sidebar-card-title">In this guide</div>
+            <nav class="sidebar-toc-nav">
+              <a class="toc-item toc-item--active" href="#what-are-youtube-chapters">
+                <span class="toc-dot"></span> What are timestamps?
+              </a>
+              <a class="toc-item" href="#what-are-youtube-chapters">
+                <span class="toc-dot"></span> Why chapters matter
+              </a>
+              <a class="toc-item" href="#what-are-youtube-chapters">
+                <span class="toc-dot"></span> How to add chapters
+              </a>
+              <a class="toc-item" href="#what-are-youtube-chapters">
+                <span class="toc-dot"></span> Manual vs. AI
+              </a>
+            </nav>
+          </div>
+
+          <!-- Quick rules card -->
+          <div class="article-sidebar-card article-sidebar-card--rules">
+            <div class="sidebar-card-title">YouTube chapter rules</div>
+            <div class="sidebar-rules">
+              <div class="sidebar-rule-row">
+                <div class="sidebar-rule-icon sidebar-rule-icon--purple">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div>
+                  <div class="sidebar-rule-label">Format</div>
+                  <code class="sidebar-code">0:00 Chapter name</code>
+                </div>
+              </div>
+              <div class="sidebar-rule-row">
+                <div class="sidebar-rule-icon sidebar-rule-icon--blue">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 11l3 3L22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+                </div>
+                <div>
+                  <div class="sidebar-rule-label">Minimum chapters</div>
+                  <span class="sidebar-rule-val">3 required</span>
+                </div>
+              </div>
+              <div class="sidebar-rule-row">
+                <div class="sidebar-rule-icon sidebar-rule-icon--green">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                </div>
+                <div>
+                  <div class="sidebar-rule-label">First chapter</div>
+                  <span class="sidebar-rule-val">Must start at 0:00</span>
+                </div>
+              </div>
+              <div class="sidebar-rule-row">
+                <div class="sidebar-rule-icon sidebar-rule-icon--amber">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+                </div>
+                <div>
+                  <div class="sidebar-rule-label">Where to paste</div>
+                  <span class="sidebar-rule-val">Video description</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- CTA card -->
+          <div class="article-sidebar-card article-sidebar-card--cta">
+            <div class="sidebar-cta-icon">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+            </div>
+            <div class="sidebar-cta-title">Generate chapters instantly</div>
+            <p class="sidebar-cta-desc">Paste a YouTube URL — AI generates perfectly formatted chapter timestamps in under 30 seconds.</p>
+            <button class="btn btn-primary sidebar-cta-btn nav-link-page" data-page="page-home" id="learn-try-btn">
+              Try it free →
+            </button>
+            <div class="sidebar-cta-note">No account required to try</div>
+          </div>
+
+        </div><!-- /.article-sidebar -->
+      </div><!-- /.article-inner -->
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FAQ — Frequently Asked Questions
+  ══════════════════════════════════════════════ -->
+  <section class="home-faq" id="faq" aria-label="Frequently asked questions">
+    <div class="section-inner">
+      <div class="section-pill">FAQ</div>
+      <h2 class="section-title">Frequently asked questions</h2>
+      <p class="section-sub">Everything you need to know about AI-powered video timestamp generation.</p>
+
+      <div class="faq-two-col">
+        <div class="faq-col">
+
+          <details class="faq-item">
+            <summary>What is an AI timestamp generator?</summary>
+            <p>An AI timestamp generator automatically analyses a video's audio and spoken content to identify distinct topics, scenes, or segments — then outputs formatted timestamps you can paste into YouTube or any video platform to create clickable chapter markers. TimestampAI uses advanced speech AI to do this in seconds.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How do I add YouTube chapter timestamps to my video?</summary>
+            <p>Generate your timestamps with TimestampAI, then open your YouTube video in YouTube Studio, scroll to the Description field, and paste the timestamp list at the top or bottom of the description. Save the video — YouTube will automatically detect and display the chapters.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How accurate are the AI-generated timestamps?</summary>
+            <p>TimestampAI is highly accurate for videos with clear speech and distinct topic changes. The AI analyses spoken words and content transitions to determine chapter boundaries. Results are generally excellent for tutorials, lectures, interviews, and podcasts. Accuracy may vary slightly for videos with heavy background music or minimal dialogue.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Do I need to create an account to use TimestampAI?</summary>
+            <p>You can generate timestamps directly from the homepage without creating an account. Creating a free account gives you a job history, usage stats, and the ability to purchase additional credit packs when you need more generations.</p>
+          </details>
+
+        </div>
+        <div class="faq-col">
+
+          <details class="faq-item">
+            <summary>What video formats are supported?</summary>
+            <p>TimestampAI accepts YouTube URLs (any public YouTube video) and direct file uploads in MP4, MOV, AVI, MKV, and other common video formats. Simply paste the YouTube link or upload your file — the AI handles the rest.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How long does it take to generate timestamps?</summary>
+            <p>Most videos are processed in under 30 seconds. Longer videos (60+ minutes) may take up to 2–3 minutes depending on the length and complexity of the content. You'll see a real-time progress indicator while the AI works.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>How much does TimestampAI cost?</summary>
+            <p>New users receive free credits to try the service instantly with no payment required. Additional credits are available in three packs: Starter (10 credits · $4.99), Pro (50 credits · $19.99), and Business (200 credits · $59.99). Credits never expire. We accept card payments and cryptocurrency.</p>
+          </details>
+
+          <details class="faq-item">
+            <summary>Can I use TimestampAI for videos that are not on YouTube?</summary>
+            <p>Yes. TimestampAI supports direct video file uploads, so you can process any video regardless of where it's hosted. Simply upload the MP4 or other video file and receive the AI-generated timestamps ready to use anywhere.</p>
+          </details>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════════
+       FINAL CTA
+  ══════════════════════════════════════════════ -->
+  <section class="home-final-cta" aria-label="Get started with TimestampAI">
+    <div class="section-inner">
+      <div class="final-cta-card">
+        <div class="final-cta-glow"></div>
+        <div class="final-cta-glow-2"></div>
+        <div class="final-cta-content">
+          <div class="home-pill" style="margin:0 auto 28px">
+            <span class="pill-dot"></span> Free to start — no credit card required
+          </div>
+          <h2 class="final-cta-title">Generate your first <span>timestamps right now</span></h2>
+          <p class="final-cta-sub">Join thousands of creators who save hours every week with AI-powered video chapter timestamps. Paste a YouTube link below and see for yourself.</p>
+          <div class="final-cta-actions">
+            <button class="btn btn-primary btn-lg" id="final-cta-start-btn">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+              Start Generating Free
+            </button>
+            <a class="btn btn-ghost btn-lg nav-link-page" data-page="page-pricing">View Pricing →</a>
+          </div>
+          <div class="final-cta-trust">
+            <span>
+              <span class="final-cta-trust-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+              No signup needed to try
+            </span>
+            <span>
+              <span class="final-cta-trust-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Results in under 30 seconds
+            </span>
+            <span>
+              <span class="final-cta-trust-icon"><svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></span>
+              Credits never expire
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── Footer ── -->
+  <footer class="home-footer">
+    <div class="footer-inner footer-inner-full">
+      <div class="footer-cols">
+        <div class="footer-col">
+          <div class="footer-brand">
+            <div class="logo-icon sm"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <span class="logo-text" style="font-size:14px">TimestampAI</span>
+          </div>
+          <p class="footer-tagline">AI-powered video chapters in seconds.</p>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Product</div>
+          <a class="footer-link nav-link-page" data-page="page-pricing">Pricing</a>
+          <a class="footer-link nav-link-page" data-page="page-home" href="#features">Features</a>
+          <a class="footer-link nav-link-page" data-page="page-home" href="#how">How it works</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Company</div>
+          <a class="footer-link nav-link-page" data-page="page-contact">Contact</a>
+        </div>
+        <div class="footer-col">
+          <div class="footer-col-title">Legal</div>
+          <a class="footer-link nav-link-page" data-page="page-privacy">Privacy Policy</a>
+          <a class="footer-link nav-link-page" data-page="page-terms">Terms of Service</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p class="footer-copy">© 2025 TimestampAI · All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+<div id="toast" class="toast hidden"></div>
+<script src="./src/main.js" defer></script>
+</body>
+</html>

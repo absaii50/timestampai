@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard — TimestampAI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="description" content="Generate AI-powered chapter timestamps for any YouTube video or uploaded file in under 30 seconds. The fastest free AI timestamp generator — paste a link, get instant chapters." />
+  <meta name="keywords" content="AI timestamp generator, YouTube chapter timestamps, video chapters generator, automatic timestamp maker, YouTube chapters AI, video timestamp tool, add chapters to YouTube, free timestamp generator" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="TimestampAI" />
+  <link rel="canonical" href="https://timestampai.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TimestampAI — Free AI YouTube Timestamp &amp; Chapter Generator" />
+  <meta property="og:description" content="Turn any YouTube video or uploaded file into perfectly timed AI chapter timestamps in seconds. Free to try. No account required." />
+  <meta property="og:url" content="https://timestampai.app/" />
+  <meta property="og:site_name" content="TimestampAI" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TimestampAI — Free AI YouTube Timestamp Generator" />
+  <meta name="twitter:description" content="Generate chapter timestamps for any YouTube video in seconds using AI. Free, instant, no signup needed." />
+
+  <!-- Structured Data — Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TimestampAI",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered automatic YouTube timestamp and video chapter generator. Paste a YouTube URL or upload a video file to instantly get AI-generated chapter timestamps.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free trial credits included"
+    },
+    "featureList": [
+      "Automatic YouTube chapter timestamp generation",
+      "Video file upload support",
+      "AI-powered content analysis",
+      "Instant results in under 30 seconds",
+      "One-click copy and .txt download",
+      "Job history and usage dashboard"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data — FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI timestamp generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An AI timestamp generator automatically analyzes a video's audio and content to identify distinct topics or chapters, then outputs timestamps you can paste directly into YouTube's description to create clickable chapter markers." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I add chapters to a YouTube video?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Paste your YouTube video URL into TimestampAI, wait a few seconds, then copy the generated timestamps and paste them into your YouTube video description. YouTube will automatically convert them into clickable chapter markers." }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the AI-generated timestamps?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TimestampAI uses advanced AI to analyze speech, topics, and content transitions. Results are highly accurate for most videos, especially those with clear speech. Accuracy may vary for music-heavy or low-speech content." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is TimestampAI free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, TimestampAI includes free credits for new users with no account required. Additional credits can be purchased starting at $4.99 for 10 generations." }
+      },
+      {
+        "@type": "Question",
+        "name": "What video formats does TimestampAI support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TimestampAI supports YouTube URLs and direct video file uploads in MP4, MOV, AVI, and other common formats." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="./src/style.css">
+
+  <noscript></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body data-page="dashboard">
+
+<div class="dash-shell">
+
+    <!-- ── Sidebar ── -->
+    <aside class="dash-sidebar">
+      <div class="dash-sidebar-top">
+        <div class="dash-logo">
+          <div class="logo-icon sm"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+          <span class="logo-text">TimestampAI</span>
+        </div>
+
+        <nav class="dash-nav" role="navigation">
+          <button class="dash-nav-item active" data-dash-view="generate">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            New Timestamp
+          </button>
+          <button class="dash-nav-item" data-dash-view="history">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+            My History
+          </button>
+          <button class="dash-nav-item" data-dash-view="stats">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+            Usage Stats
+          </button>
+          <button class="dash-nav-item" data-dash-view="pricing">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+            Buy Credits
+          </button>
+          <div class="dash-nav-divider"></div>
+          <button class="dash-nav-item" data-dash-view="settings">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+            Settings
+          </button>
+        </nav>
+      </div>
+
+      <div class="dash-sidebar-bottom">
+        <div class="dash-user-card" id="dash-user-card-btn" style="cursor:pointer" title="Edit profile">
+          <div class="user-avatar" id="user-avatar">JS</div>
+          <div class="dash-user-info">
+            <div class="user-name-hdr" id="header-name">Jane Smith</div>
+            <div class="user-email-hdr" id="header-email">jane@example.com</div>
+          </div>
+        </div>
+        <div class="credits-pill" id="credits-pill" title="Available credits">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+          <span id="sidebar-credits">—</span> credits
+          <button class="credits-buy-btn" onclick="switchDashView('pricing')">Buy</button>
+        </div>
+        <div class="dash-sidebar-actions">
+          <button class="dash-icon-btn" id="dark-mode-toggle" title="Toggle dark mode">
+            <svg id="icon-moon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+            <svg id="icon-sun" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="hidden"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          </button>
+          <button id="user-logout-btn" class="dash-logout-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+            Sign Out
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ── Main content ── -->
+    <main class="dash-main">
+
+      <!-- Top bar -->
+      <div class="dash-topbar">
+        <div class="dash-topbar-left">
+          <h1 class="dash-page-title" id="dash-page-title">Generate Timestamps</h1>
+          <p class="dash-page-sub" id="dash-page-sub">Paste a YouTube URL or upload a video file</p>
+        </div>
+        <div class="dash-topbar-right">
+          <button class="btn-ghost dash-refresh-btn" id="user-refresh-btn" title="Refresh jobs">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 .49-4.5"/></svg>
+            Refresh
+          </button>
+          <div class="notif-wrap">
+            <button class="dash-icon-btn notif-btn" id="notif-btn" title="Notifications">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span class="notif-badge hidden" id="notif-badge">0</span>
+            </button>
+            <div class="notif-dropdown hidden" id="notif-dropdown">
+              <div class="notif-hdr">
+                <span>Notifications</span>
+                <button class="notif-clear-btn" id="notif-clear-btn">Clear all</button>
+              </div>
+              <div id="notif-list" class="notif-list">
+                <div class="notif-empty">No notifications yet</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats row -->
+      <div class="dash-stats-row" id="dash-stats-row">
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon" style="--sc:#7c3aed">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <div class="dash-stat-num" id="user-stat-total">—</div>
+            <div class="dash-stat-label">Total jobs</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon" style="--sc:#10b981">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          </div>
+          <div>
+            <div class="dash-stat-num" id="user-stat-done">—</div>
+            <div class="dash-stat-label">Completed</div>
+          </div>
+        </div>
+        <div class="dash-stat-card">
+          <div class="dash-stat-icon" style="--sc:#f59e0b">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+          </div>
+          <div>
+            <div class="dash-stat-num" id="user-stat-running">—</div>
+            <div class="dash-stat-label">In progress</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── GENERATE VIEW ── -->
+      <div class="dash-view" id="dash-view-generate">
+
+        <!-- Source tabs -->
+        <div class="dash-submit-card">
+          <div class="dash-tabs">
+            <button class="dash-tab active" id="tab-yt" data-tab="youtube">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.07 0 12 0 12s0 3.93.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.5 20.5 12 20.5 12 20.5s7.5 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.93 24 12 24 12s0-3.93-.5-5.81zM9.75 15.02V8.98L15.5 12l-5.75 3.02z"/></svg>
+              YouTube URL
+            </button>
+            <button class="dash-tab" id="tab-up" data-tab="upload">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+              Upload File
+            </button>
+          </div>
+
+          <!-- YouTube panel -->
+          <div id="panel-youtube" class="tab-panel">
+            <p class="dash-panel-hint">Enter any public YouTube URL and we'll extract chapter timestamps automatically.</p>
+            <div class="form-row">
+              <div class="input-wrap">
+                <svg class="input-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/></svg>
+                <input type="url" id="youtube-url" class="input" placeholder="https://www.youtube.com/watch?v=…" />
+              </div>
+              <button class="btn btn-primary" id="btn-youtube">
+                <span id="btn-youtube-text">Generate</span>
+                <span id="btn-youtube-spinner" class="spinner hidden"></span>
+              </button>
+            </div>
+            <div id="youtube-error" class="error-msg hidden"></div>
+          </div>
+
+          <!-- Upload panel -->
+          <div id="panel-upload" class="tab-panel hidden">
+            <p class="dash-panel-hint">Upload a local video file up to 2 GB — MP4, MOV, AVI, MKV, or WebM.</p>
+            <div class="drop-zone" id="drop-zone">
+              <input type="file" id="file-input" accept="video/*" style="display:none">
+              <div id="drop-zone-empty">
+                <div class="drop-zone-icon">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="17 8 12 3 7 8"/><line x1="12" y1="3" x2="12" y2="15"/></svg>
+                </div>
+                <div class="drop-title">Drop video here or <span class="drop-browse">click to browse</span></div>
+                <div class="drop-hint">MP4, MOV, AVI, MKV, WebM · max 2 GB</div>
+              </div>
+              <div id="drop-zone-selected" class="hidden">
+                <div class="drop-file-icon">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                </div>
+                <div class="drop-file-info">
+                  <div id="selected-filename" class="drop-title"></div>
+                  <div id="selected-filesize" class="drop-hint"></div>
+                </div>
+                <button class="clear-btn" id="clear-file-btn" title="Remove file">
+                  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+                </button>
+              </div>
+            </div>
+            <div id="upload-progress-wrap" class="hidden">
+              <div class="progress-label"><span id="progress-label-text">Preparing…</span><span id="progress-pct">0%</span></div>
+              <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-bar" style="width:0%"></div></div>
+            </div>
+            <div class="form-row-upload">
+              <input type="text" id="upload-title" class="input" placeholder="Optional title for this video" />
+              <button class="btn btn-primary" id="btn-upload">
+                <span id="btn-upload-text">Upload &amp; Generate</span>
+                <span id="btn-upload-spinner" class="spinner hidden"></span>
+              </button>
+            </div>
+            <div id="upload-error" class="error-msg hidden"></div>
+          </div>
+        </div>
+
+        <!-- Recent jobs (in generate view) -->
+        <div class="dash-jobs-section">
+          <div class="dash-jobs-hdr">
+            <h2 class="dash-jobs-title">Recent Jobs</h2>
+          </div>
+          <div id="user-jobs-list">
+            <div class="empty-state">
+              <div class="empty-icon">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+              </div>
+              <p>No jobs yet — submit a URL or upload a video above to get started.</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.dash-view#generate -->
+
+      <!-- ── HISTORY VIEW ── -->
+      <div class="dash-view hidden" id="dash-view-history">
+        <!-- Search + filter toolbar -->
+        <div class="hist-toolbar">
+          <div class="hist-search-wrap">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="hist-search" class="hist-search-input" placeholder="Search by title or URL…">
+          </div>
+          <div class="hist-pills">
+            <button class="hist-pill active" data-filter="all">All</button>
+            <button class="hist-pill" data-filter="finished">Completed</button>
+            <button class="hist-pill" data-filter="processing">Processing</button>
+            <button class="hist-pill" data-filter="pending">Pending</button>
+            <button class="hist-pill" data-filter="failed">Failed</button>
+          </div>
+        </div>
+        <div class="dash-jobs-section">
+          <div id="user-history-list">
+            <div class="empty-state">
+              <div class="empty-icon"><svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg></div>
+              <p>No history yet.</p>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.dash-view#history -->
+
+      <!-- ── STATS VIEW ── -->
+      <div class="dash-view hidden" id="dash-view-stats">
+        <div class="stats-overview-row">
+          <div class="stats-kpi-card" style="--kc:#7c3aed">
+            <div class="stats-kpi-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg></div>
+            <div class="stats-kpi-num" id="kpi-total">0</div>
+            <div class="stats-kpi-label">Total Jobs</div>
+          </div>
+          <div class="stats-kpi-card" style="--kc:#10b981">
+            <div class="stats-kpi-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="stats-kpi-num" id="kpi-done">0</div>
+            <div class="stats-kpi-label">Completed</div>
+          </div>
+          <div class="stats-kpi-card" style="--kc:#f59e0b">
+            <div class="stats-kpi-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+            <div class="stats-kpi-num" id="kpi-processing">0</div>
+            <div class="stats-kpi-label">Processing</div>
+          </div>
+          <div class="stats-kpi-card" style="--kc:#ef4444">
+            <div class="stats-kpi-icon"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="15" y1="9" x2="9" y2="15"/><line x1="9" y1="9" x2="15" y2="15"/></svg></div>
+            <div class="stats-kpi-num" id="kpi-failed">0</div>
+            <div class="stats-kpi-label">Failed</div>
+          </div>
+        </div>
+
+        <div class="chart-card">
+          <div class="chart-card-hdr">
+            <h3 class="chart-title">Jobs in the Last 7 Days</h3>
+          </div>
+          <div class="chart-wrap" id="stats-chart-wrap">
+            <svg id="stats-chart" width="100%" height="180" viewBox="0 0 560 180" preserveAspectRatio="none"></svg>
+            <div class="chart-labels" id="chart-labels"></div>
+          </div>
+        </div>
+
+        <div class="chart-card" style="margin-top:16px">
+          <div class="chart-card-hdr">
+            <h3 class="chart-title">Source Breakdown</h3>
+          </div>
+          <div class="source-breakdown" id="source-breakdown">
+            <div class="source-row">
+              <span class="source-label">🎬 YouTube URLs</span>
+              <div class="source-bar-wrap"><div class="source-bar" id="bar-youtube" style="width:0%;background:#ef4444"></div></div>
+              <span class="source-pct" id="pct-youtube">0</span>
+            </div>
+            <div class="source-row">
+              <span class="source-label">📁 File Uploads</span>
+              <div class="source-bar-wrap"><div class="source-bar" id="bar-upload" style="width:0%;background:#7c3aed"></div></div>
+              <span class="source-pct" id="pct-upload">0</span>
+            </div>
+          </div>
+        </div>
+      </div><!-- /.dash-view#stats -->
+
+      <!-- ── SETTINGS VIEW ── -->
+      <div class="dash-view hidden" id="dash-view-settings">
+        <div class="settings-card">
+          <h2 class="settings-section-title">Profile</h2>
+          <div class="settings-avatar-row">
+            <div class="settings-avatar" id="settings-avatar">JS</div>
+            <div class="avatar-color-row">
+              <p class="avatar-color-label">Avatar color</p>
+              <div class="avatar-swatches" id="avatar-swatches">
+                <button class="avatar-swatch active" data-color="#7c3aed" style="background:#7c3aed"></button>
+                <button class="avatar-swatch" data-color="#2563eb" style="background:#2563eb"></button>
+                <button class="avatar-swatch" data-color="#0891b2" style="background:#0891b2"></button>
+                <button class="avatar-swatch" data-color="#059669" style="background:#059669"></button>
+                <button class="avatar-swatch" data-color="#d97706" style="background:#d97706"></button>
+                <button class="avatar-swatch" data-color="#dc2626" style="background:#dc2626"></button>
+                <button class="avatar-swatch" data-color="#db2777" style="background:#db2777"></button>
+                <button class="avatar-swatch" data-color="#475569" style="background:#475569"></button>
+              </div>
+            </div>
+          </div>
+          <div class="settings-form">
+            <div class="settings-field">
+              <label class="settings-label">Display Name</label>
+              <input type="text" id="settings-name" class="input" placeholder="Your name">
+            </div>
+            <div class="settings-field">
+              <label class="settings-label">Email Address</label>
+              <input type="email" id="settings-email" class="input" placeholder="you@example.com">
+            </div>
+            <div class="settings-actions">
+              <button class="btn btn-primary" id="settings-save-btn">Save Changes</button>
+              <span class="settings-saved-msg hidden" id="settings-saved-msg">✓ Saved!</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-card" style="margin-top:16px">
+          <h2 class="settings-section-title">Preferences</h2>
+          <div class="pref-row">
+            <div>
+              <div class="pref-label">Dark Mode</div>
+              <div class="pref-sub">Switch between light and dark interface</div>
+            </div>
+            <button class="toggle-switch" id="settings-dark-toggle">
+              <span class="toggle-knob"></span>
+            </button>
+          </div>
+        </div>
+
+        <div class="settings-card danger-zone" style="margin-top:16px">
+          <h2 class="settings-section-title" style="color:var(--danger)">Danger Zone</h2>
+          <div class="pref-row">
+            <div>
+              <div class="pref-label">Sign Out</div>
+              <div class="pref-sub">End your current session</div>
+            </div>
+            <button class="btn btn-danger-outline" id="settings-logout-btn">Sign Out</button>
+          </div>
+        </div>
+      </div><!-- /.dash-view#settings -->
+
+      <!-- ── JOB DETAIL VIEW ── -->
+      <div class="dash-view hidden" id="dash-view-job-detail">
+        <button class="detail-back-btn" id="detail-back-btn">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+          Back
+        </button>
+        <div class="detail-header">
+          <div class="detail-title-row">
+            <h2 class="detail-title" id="detail-title">Job Title</h2>
+            <span class="job-badge" id="detail-status-badge">finished</span>
+          </div>
+          <div class="detail-meta" id="detail-meta">YouTube · Jan 1, 2025</div>
+        </div>
+        <div class="detail-actions">
+          <button class="btn btn-primary" id="detail-copy-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2"/><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/></svg>
+            Copy All
+          </button>
+          <button class="btn btn-ghost" id="detail-download-btn">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+            Download .txt
+          </button>
+        </div>
+        <div class="detail-ts-list" id="detail-ts-list">
+          <div class="empty-state"><p>Loading…</p></div>
+        </div>
+      </div><!-- /.dash-view#job-detail -->
+
+      <!-- ── Pricing View ── -->
+      <div class="dash-view hidden" id="dash-view-pricing">
+        <div class="pricing-intro">
+          <p class="pricing-sub">Each job (YouTube URL or upload) uses 1 credit. Credits never expire.</p>
+          <div class="credits-balance-banner">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg>
+            You have <strong id="pricing-credits-count">—</strong> credits remaining
+          </div>
+        </div>
+
+        <div class="pricing-grid">
+
+          <!-- Starter -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <div class="plan-name">Starter</div>
+              <div class="plan-price">$4.99</div>
+              <div class="plan-credits">10 credits</div>
+            </div>
+            <ul class="plan-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 10 timestamp jobs</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> YouTube &amp; file uploads</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Credits never expire</li>
+            </ul>
+            <div class="plan-btns">
+              <button class="btn btn-payment btn-ls" data-plan="starter" data-provider="lemonsqueezy">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                Pay with Card
+              </button>
+              <button class="btn btn-payment btn-crypto" data-plan="starter" data-provider="cryptomus">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Pay with Crypto
+              </button>
+            </div>
+          </div>
+
+          <!-- Pro (recommended) -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-badge">Most Popular</div>
+            <div class="pricing-card-header">
+              <div class="plan-name">Pro</div>
+              <div class="plan-price">$19.99</div>
+              <div class="plan-credits">50 credits</div>
+            </div>
+            <ul class="plan-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 50 timestamp jobs</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> YouTube &amp; file uploads</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Credits never expire</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> $0.40 per job (vs $0.50)</li>
+            </ul>
+            <div class="plan-btns">
+              <button class="btn btn-payment btn-ls btn-ls--featured" data-plan="pro" data-provider="lemonsqueezy">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                Pay with Card
+              </button>
+              <button class="btn btn-payment btn-crypto" data-plan="pro" data-provider="cryptomus">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Pay with Crypto
+              </button>
+            </div>
+          </div>
+
+          <!-- Business -->
+          <div class="pricing-card">
+            <div class="pricing-card-header">
+              <div class="plan-name">Business</div>
+              <div class="plan-price">$59.99</div>
+              <div class="plan-credits">200 credits</div>
+            </div>
+            <ul class="plan-features">
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> 200 timestamp jobs</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> YouTube &amp; file uploads</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> Credits never expire</li>
+              <li><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#10b981" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg> $0.30 per job (best value)</li>
+            </ul>
+            <div class="plan-btns">
+              <button class="btn btn-payment btn-ls" data-plan="business" data-provider="lemonsqueezy">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg>
+                Pay with Card
+              </button>
+              <button class="btn btn-payment btn-crypto" data-plan="business" data-provider="cryptomus">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+                Pay with Crypto
+              </button>
+            </div>
+          </div>
+
+        </div><!-- /.pricing-grid -->
+
+        <div class="pricing-faq">
+          <h3 class="pricing-faq-title">How it works</h3>
+          <div class="pricing-faq-grid">
+            <div class="faq-item">
+              <div class="faq-icon">💳</div>
+              <div><strong>Pay with Card</strong><br>Secure hosted checkout via Lemon Squeezy. Accepts all major cards globally.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-icon">🪙</div>
+              <div><strong>Pay with Crypto</strong><br>BTC, ETH, USDT and 100+ cryptocurrencies accepted via Cryptomus.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-icon">⚡</div>
+              <div><strong>Instant credits</strong><br>Credits are added to your account automatically after payment confirmation.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pricing-error hidden" id="pricing-error"></div>
+
+      </div><!-- /.dash-view#pricing -->
+
+    </main><!-- /.dash-main -->
+  </div><!-- /.dash-shell -->
+
+<div id="toast" class="toast hidden"></div>
+<script src="./src/main.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <base href="/">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sign In — TimestampAI</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <meta name="description" content="Generate AI-powered chapter timestamps for any YouTube video or uploaded file in under 30 seconds. The fastest free AI timestamp generator — paste a link, get instant chapters." />
+  <meta name="keywords" content="AI timestamp generator, YouTube chapter timestamps, video chapters generator, automatic timestamp maker, YouTube chapters AI, video timestamp tool, add chapters to YouTube, free timestamp generator" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="TimestampAI" />
+  <link rel="canonical" href="https://timestampai.app/" />
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="TimestampAI — Free AI YouTube Timestamp &amp; Chapter Generator" />
+  <meta property="og:description" content="Turn any YouTube video or uploaded file into perfectly timed AI chapter timestamps in seconds. Free to try. No account required." />
+  <meta property="og:url" content="https://timestampai.app/" />
+  <meta property="og:site_name" content="TimestampAI" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="TimestampAI — Free AI YouTube Timestamp Generator" />
+  <meta name="twitter:description" content="Generate chapter timestamps for any YouTube video in seconds using AI. Free, instant, no signup needed." />
+
+  <!-- Structured Data — Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "TimestampAI",
+    "applicationCategory": "ProductivityApplication",
+    "operatingSystem": "Web",
+    "description": "AI-powered automatic YouTube timestamp and video chapter generator. Paste a YouTube URL or upload a video file to instantly get AI-generated chapter timestamps.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD",
+      "description": "Free trial credits included"
+    },
+    "featureList": [
+      "Automatic YouTube chapter timestamp generation",
+      "Video file upload support",
+      "AI-powered content analysis",
+      "Instant results in under 30 seconds",
+      "One-click copy and .txt download",
+      "Job history and usage dashboard"
+    ]
+  }
+  </script>
+
+  <!-- Structured Data — FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "What is an AI timestamp generator?",
+        "acceptedAnswer": { "@type": "Answer", "text": "An AI timestamp generator automatically analyzes a video's audio and content to identify distinct topics or chapters, then outputs timestamps you can paste directly into YouTube's description to create clickable chapter markers." }
+      },
+      {
+        "@type": "Question",
+        "name": "How do I add chapters to a YouTube video?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Paste your YouTube video URL into TimestampAI, wait a few seconds, then copy the generated timestamps and paste them into your YouTube video description. YouTube will automatically convert them into clickable chapter markers." }
+      },
+      {
+        "@type": "Question",
+        "name": "How accurate are the AI-generated timestamps?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TimestampAI uses advanced AI to analyze speech, topics, and content transitions. Results are highly accurate for most videos, especially those with clear speech. Accuracy may vary for music-heavy or low-speech content." }
+      },
+      {
+        "@type": "Question",
+        "name": "Is TimestampAI free to use?",
+        "acceptedAnswer": { "@type": "Answer", "text": "Yes, TimestampAI includes free credits for new users with no account required. Additional credits can be purchased starting at $4.99 for 10 generations." }
+      },
+      {
+        "@type": "Question",
+        "name": "What video formats does TimestampAI support?",
+        "acceptedAnswer": { "@type": "Answer", "text": "TimestampAI supports YouTube URLs and direct video file uploads in MP4, MOV, AVI, and other common formats." }
+      }
+    ]
+  }
+  </script>
+
+  <link rel="stylesheet" href="./src/style.css">
+
+  <noscript></noscript>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"></noscript>
+</head>
+<body data-page="login">
+
+<div class="auth-bg">
+    <div class="auth-card">
+      <div class="auth-brand">
+        <div class="logo-icon"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div>
+        <span class="logo-text">TimestampAI</span>
+      </div>
+      <h1 class="auth-title">Welcome back</h1>
+      <p class="auth-sub">Sign in to generate chapter timestamps</p>
+      <form id="login-form" class="auth-form" novalidate>
+        <div class="field">
+          <label for="login-name">Your Name</label>
+          <input type="text" id="login-name" placeholder="Jane Smith" required autocomplete="name" />
+        </div>
+        <div class="field">
+          <label for="login-email">Email Address</label>
+          <input type="email" id="login-email" placeholder="jane@example.com" required autocomplete="email" />
+        </div>
+        <div id="login-error" class="error-msg hidden"></div>
+        <button type="submit" class="btn btn-primary btn-full">Continue</button>
+      </form>
+      <div class="auth-divider"><span>or</span></div>
+      <button id="go-admin-login" class="btn btn-ghost btn-full">Sign in as Admin</button>
+      <button id="login-back-home" class="back-home-btn">← Back to Home</button>
+    </div>
+  </div>
+
+<div id="toast" class="toast hidden"></div>
+<script src="./src/main.js" defer></script>
+</body>
+</html>
