@@ -1,0 +1,4 @@
+runtime: nodejs-24
+entry_point: index.js
+build_command: npm run build
+start_command: npm start
